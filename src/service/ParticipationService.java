@@ -13,10 +13,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import utils.Datasource;
 
-/**
- *
- * @author wiemhjiri
- */
 public class ParticipationService implements IService<Participation> {
 
     private Connection conn;

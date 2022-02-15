@@ -8,10 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import utils.Datasource;
 
-/**
- *
- * @author wiemhjiri
- */
+
 public class QualifyingService implements IService<Qualifying> {
 
     private Connection conn;

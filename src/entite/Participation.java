@@ -5,10 +5,6 @@
  */
 package entite;
 
-/**
- *
- * @author wiemhjiri
- */
 public class Participation {
 
     private int participation_id;
