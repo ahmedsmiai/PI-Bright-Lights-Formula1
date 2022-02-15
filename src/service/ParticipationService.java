@@ -52,7 +52,7 @@ public class ParticipationService implements IService<Participation> {
         try {
             pst = conn.prepareStatement(req);
             pst.setInt(1, p.getParticipation_id());
-            pst.executeUpdate();
+            pst.executeUpdate() ;
         } catch (SQLException ex) {
             Logger.getLogger(ParticipationService.class.getName()).log(Level.SEVERE, null, ex);
 
