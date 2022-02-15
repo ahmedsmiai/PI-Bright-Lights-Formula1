@@ -15,27 +15,27 @@ import java.util.logging.Logger;
  *
  * @author wiemhjiri
  */
-public class Datasource {
+public class MyConnection {
     
    private  String url="jdbc:mysql://localhost:3306/mydb";
    private  String login="root";
    private  String pwd="root";
    
    private  Connection cnx;
-   private static Datasource instance;
+   private static MyConnection instance;
 
-    private Datasource() {
+    private MyConnection() {
 
         try {
             cnx=DriverManager.getConnection(url, login, pwd);
         } catch (SQLException ex) {
-            Logger.getLogger(Datasource.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MyConnection.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
-    public static Datasource getInstance(){
+    public static MyConnection getInstance(){
          if(instance==null)
-             instance=new Datasource();
+             instance=new MyConnection();
          return instance;
     }
 

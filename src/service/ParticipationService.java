@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import utils.Datasource;
+import utils.MyConnection;
 
 public class ParticipationService implements IService<Participation> {
 
@@ -21,7 +21,7 @@ public class ParticipationService implements IService<Participation> {
     private ResultSet rs;
 
     public ParticipationService() {
-        conn = Datasource.getInstance().getCnx();
+        conn = MyConnection.getInstance().getCnx();
     }
 
     @Override

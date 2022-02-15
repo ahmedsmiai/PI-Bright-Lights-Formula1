@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import utils.Datasource;
+import utils.MyConnection;
 
 
 public class QualifyingService implements IService<Qualifying> {
@@ -17,7 +17,7 @@ public class QualifyingService implements IService<Qualifying> {
     private ResultSet rs;
 
     public QualifyingService() {
-        conn = Datasource.getInstance().getCnx();
+        conn = MyConnection.getInstance().getCnx();
     }
 
     @Override
