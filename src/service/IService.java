@@ -8,8 +8,6 @@ package service;
 import java.util.List;
 
 /**
- *
- * @author wiemhjiri
  * @param <T>
  */
 public interface IService<T> {
