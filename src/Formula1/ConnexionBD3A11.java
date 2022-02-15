@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package connexionbd3a11;
+package Formula1;
 
 import entite.Participation;
 import entite.Qualifying;
