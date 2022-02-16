@@ -26,11 +26,9 @@ public class Formula1 {
 //        
 //        MyConnection ds2=MyConnection.getInstance();
 //        System.out.println(ds2);
-
-        Participation p = new Participation(1,5,1,1,3,22,60,100);
-        ParticipationService qs = new ParticipationService();
-       
-        qs.delete(p);
+            ParticipationService ps = new ParticipationService();
+            QualifyingService qs = new QualifyingService();
+        System.out.println(qs.readById(ps.readById(2).getQualifying_id()));
 
     }
 
