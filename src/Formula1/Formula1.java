@@ -5,12 +5,8 @@
  */
 package Formula1;
 
-import entite.Participation;
-import entite.Qualifying;
-import java.sql.*;
-import service.ParticipationService;
-import service.QualifyingService;
-import utils.MyConnection;
+import entite.*;
+import service.*;
 
 
 public class Formula1 {
@@ -26,10 +22,11 @@ public class Formula1 {
 //        
 //        MyConnection ds2=MyConnection.getInstance();
 //        System.out.println(ds2);
-            ParticipationService ps = new ParticipationService();
+            RoleService rs = new RoleService();
             QualifyingService qs = new QualifyingService();
-        System.out.println(qs.readById(ps.readById(2).getQualifying_id()));
-
+            
+            Role r = new Role("new role");
+            rs.insertRolePst(r);
     }
 
 }

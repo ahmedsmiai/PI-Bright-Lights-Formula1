@@ -37,6 +37,7 @@ public class Qualifying {
     public String toString() {
         return "Qualifying{" + "qualifying_id=" + qualifying_id + ", q1=" + q1 + ", q2=" + q2 + ", q3=" + q3 + ", position=" + position + ", pilote_id=" + pilote_id + ", course_id=" + course_id + '}';
     }
+    
 
     public int getQualifying_id() {
         return qualifying_id;
@@ -64,6 +65,34 @@ public class Qualifying {
 
     public int getCourse_id() {
         return course_id;
+    }
+
+    public void setQualifying_id(int qualifying_id) {
+        this.qualifying_id = qualifying_id;
+    }
+
+    public void setQ1(String q1) {
+        this.q1 = q1;
+    }
+
+    public void setQ2(String q2) {
+        this.q2 = q2;
+    }
+
+    public void setQ3(String q3) {
+        this.q3 = q3;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
+    }
+
+    public void setPilote_id(int pilote_id) {
+        this.pilote_id = pilote_id;
+    }
+
+    public void setCourse_id(int course_id) {
+        this.course_id = course_id;
     }
 
    

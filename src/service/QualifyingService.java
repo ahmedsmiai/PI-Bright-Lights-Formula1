@@ -91,7 +91,25 @@ public class QualifyingService implements IService<Qualifying> {
 
     @Override
     public Qualifying readById(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String req = "select * from qualifying where qualifying_id="+id;
+        Qualifying q = new Qualifying();
+
+        try {
+            ste = conn.createStatement();
+            rs = ste.executeQuery(req);
+            while (rs.next()) {
+                q.setQualifying_id(rs.getInt("qualifying_id"));
+                q.setQ1(rs.getString("q1"));
+                q.setQ2(rs.getString("q2"));
+                q.setQ3(rs.getString("q3"));
+                q.setCourse_id(rs.getInt("course_id"));
+                q.setPilote_id(rs.getInt("pilote_id"));
+                q.setPosition(rs.getInt("position"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ParticipationService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return q;
     }
 
 }

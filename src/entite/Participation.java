@@ -115,6 +115,11 @@ public class Participation {
     public void setPoints(int points) {
         this.points = points;
     }
+
+    @Override
+    public String toString() {
+        return "Participation{" + "participation_id=" + participation_id + ", pilote_id=" + pilote_id + ", equipe_id=" + equipe_id + ", course_id=" + course_id + ", qualifying_id=" + qualifying_id + ", grid=" + grid + ", position=" + position + ", points=" + points + '}';
+    }
             
 
     @Override

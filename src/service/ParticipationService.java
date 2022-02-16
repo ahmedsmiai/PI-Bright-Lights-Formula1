@@ -48,7 +48,7 @@ public class ParticipationService implements IService<Participation> {
         try {
             pst = conn.prepareStatement(req);
             pst.setInt(1, p.getParticipation_id());
-            pst.executeUpdate() ;
+            pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ParticipationService.class.getName()).log(Level.SEVERE, null, ex);
 
@@ -87,7 +87,7 @@ public class ParticipationService implements IService<Participation> {
             rs = ste.executeQuery(req);
             while (rs.next()) {
                 list.add(new Participation(rs.getInt("participation_id"), rs.getInt("pilote_id"), rs.getInt("equipe_id"),
-                         rs.getInt("course_id"), rs.getInt("qualifying_id"), rs.getInt("grid"), 
+                        rs.getInt("course_id"), rs.getInt("qualifying_id"), rs.getInt("grid"),
                         rs.getInt("position"), rs.getInt("points")));
             }
         } catch (SQLException ex) {
@@ -98,7 +98,26 @@ public class ParticipationService implements IService<Participation> {
 
     @Override
     public Participation readById(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String req = "select * from participation where participation_id="+id;
+        Participation p = new Participation();
+
+        try {
+            ste = conn.createStatement();
+            rs = ste.executeQuery(req);
+            while (rs.next()) {
+                p.setParticipation_id(rs.getInt("participation_id"));
+                p.setPilote_id(rs.getInt("pilote_id"));
+                p.setEquipe_id(rs.getInt("equipe_id"));
+                p.setCourse_id(rs.getInt("course_id"));
+                p.setQualifying_id(rs.getInt("qualifying_id"));
+                p.setGrid(rs.getInt("grid"));
+                p.setPosition(rs.getInt("position"));
+                p.setPoints(rs.getInt("points"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ParticipationService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return p;
     }
 
 }
