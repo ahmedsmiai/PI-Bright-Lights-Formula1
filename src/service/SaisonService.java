@@ -5,9 +5,7 @@
  */
 package service;
 import entite.Saison;
-
 import java.sql.*;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -46,9 +44,9 @@ public class SaisonService implements IService<Saison> {
             pst = conn.prepareStatement(req);
             pst.setInt(1, s.getYear());
             Date dateDeb = Date.valueOf(s.getDate_debut());
-            pst.setDate(2,dateDeb);
+            pst.setDate(2, dateDeb);
             Date dateFin = Date.valueOf(s.getDate_fin());
-            pst.setDate(3,dateFin);
+            pst.setDate(3, dateFin);
             pst.executeUpdate();
 
         } catch (SQLException ex) {
@@ -56,11 +54,7 @@ public class SaisonService implements IService<Saison> {
         }
 
     }
-  
-//    @Override
-//    public void delete(Saison t) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
+
     @Override
     public void delete(Saison s) {
         String req = "DELETE FROM saisons WHERE year=?";
@@ -70,42 +64,35 @@ public class SaisonService implements IService<Saison> {
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(SaisonService.class.getName()).log(Level.SEVERE, null, ex);
-
         }
     }
 
     @Override
     public void update(Saison s) {
-      //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                String req = "update saisons set date_debut=?,date_fin=? where year=?";
-
-     try{
-
-
-
-            pst =conn.prepareStatement(req);
-            
-            pst.setInt(1,s.getYear());
+        String req = "update saisons set date_debut=?,date_fin=? where year=?";
+        try {
+            pst = conn.prepareStatement(req);
+            pst.setInt(1, s.getYear());
             Date dateDeb = Date.valueOf(s.getDate_debut());
-            pst.setDate(2,dateDeb);
+            pst.setDate(2, dateDeb);
             Date dateFin = Date.valueOf(s.getDate_fin());
-            pst.setDate(3,dateFin);
-           
+            pst.setDate(3, dateFin);
             pst.executeUpdate();
             pst.close();
             conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(SaisonService.class.getName()).log(Level.SEVERE, null, ex);
         }
-        catch(SQLException e){e.printStackTrace();}
     }
 
     @Override
     public List<Saison> read() {
-                    String req="select * from saisons";
-                    List<Saison> list=new ArrayList<>();
+        String req = "select * from saisons";
+        List<Saison> list = new ArrayList<>();
         try {
-            ste=conn.createStatement();
-            rs= ste.executeQuery(req);
-            while(rs.next()){
+            ste = conn.createStatement();
+            rs = ste.executeQuery(req);
+            while (rs.next()) {
                 list.add(new Saison(rs.getInt("year"), rs.getDate("date_debut").toLocalDate(), rs.getDate("date_fin").toLocalDate()));
             }
         } catch (SQLException ex) {
@@ -113,10 +100,10 @@ public class SaisonService implements IService<Saison> {
         }
         return list;
     }
-    
+
     @Override
     public Saison readById(int year) {
-       String req = "select * from saisons where year="+year;
+        String req = "select * from saisons where year=" + year;
         Saison s = new Saison();
 
         try {
@@ -124,16 +111,14 @@ public class SaisonService implements IService<Saison> {
             rs = ste.executeQuery(req);
             while (rs.next()) {
                 s.setYear(rs.getInt("year"));
-               s.setDate_debut(rs.getDate("date_debut").toLocalDate());
+                s.setDate_debut(rs.getDate("date_debut").toLocalDate());
                 s.setDate_fin(rs.getDate("date_fin").toLocalDate());
-               
-    }
-        }
-    catch (SQLException ex) {
+
+            }
+        } catch (SQLException ex) {
             Logger.getLogger(SaisonService.class.getName()).log(Level.SEVERE, null, ex);
-            
         }
-    
-    return s ;
-        }
+
+        return s;
+    }
 }
