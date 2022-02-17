@@ -31,18 +31,18 @@ public class ClassementEquipesService implements IService<ClassementEquipes> {
 
     @Override
     public void insert(ClassementEquipes u) {
-        String req = "insert into classement_pilotes (pilotes_pilote_id,saisons_year,points_total,position) values ('" + u.getEquipes_equipe_id() + "','" + u.getSaisons_year() + "','" + u.getPoints_total() + "','" + u.getPosition() + "')";
+        String req = "insert into classement_equipes (equipes_equipe_id,saisons_year,points_total,position) values ('" + u.getEquipes_equipe_id() + "','" + u.getSaisons_year() + "','" + u.getPoints_total() + "','" + u.getPosition() + "')";
         try {
             ste = conn.createStatement();
             ste.executeUpdate(req);
 
         } catch (SQLException ex) {
-            Logger.getLogger(ClassementPilotesService.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ClassementEquipesService.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    public void insertclassemet_pilotePst(ClassementEquipes u) {
-        String req = "insert into classement_pilotes (pilotes_pilote_id,saisons_year,points_total,position) values (?,?,?,?)";
+    public void insertclassemet_equipePst(ClassementEquipes u) {
+        String req = "insert into classement_equipes (equipes_equipe_id,saisons_year,points_total,position) values (?,?,?,?)";
         try {
             pst = conn.prepareStatement(req);
             pst.setInt(1, u.getEquipes_equipe_id());
@@ -52,20 +52,20 @@ public class ClassementEquipesService implements IService<ClassementEquipes> {
             pst.executeUpdate();
 
         } catch (SQLException ex) {
-            Logger.getLogger(ClassementPilotesService.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ClassementEquipesService.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
 
     @Override
     public void delete(ClassementEquipes u) {
-        String req = "DELETE FROM classement_pilotes WHERE classementE_id=?";
+        String req = "DELETE FROM classement_equipe WHERE classementE_id=?";
         try {
             pst = conn.prepareStatement(req);
             pst.setInt(1, u.getClassementE_id());
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ClassementPilotesService.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ClassementEquipesService.class.getName()).log(Level.SEVERE, null, ex);
 
         }
     }
@@ -74,7 +74,7 @@ public class ClassementEquipesService implements IService<ClassementEquipes> {
     public void update(ClassementEquipes u) {
         try {
 
-            String req = "update classement_pilotes set pilotes_pilote_id=?,saisons_year=?,points_total=?, position=? where classementE_id=?";
+            String req = "update classement_equipes set equipes_equipe_id=?,saisons_year=?,points_total=?, position=? where classementE_id=?";
 
             pst = conn.prepareStatement(req);
             pst.setInt(1, u.getEquipes_equipe_id());
@@ -84,30 +84,30 @@ public class ClassementEquipesService implements IService<ClassementEquipes> {
             pst.setInt(5, u.getClassementE_id());
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ClassementPilotesService.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ClassementEquipesService.class.getName()).log(Level.SEVERE, null, ex);
 
         }
     }
 
     @Override
     public List<ClassementEquipes> read() {
-        String req = "select * from classement_pilotes";
+        String req = "select * from classement_equipes";
         List<ClassementEquipes> list = new ArrayList<>();
         try {
             ste = conn.createStatement();
             rs = ste.executeQuery(req);
             while (rs.next()) {
-                list.add(new ClassementEquipes(rs.getInt("classementE_id"), rs.getInt("pilotes_pilote_id"), rs.getInt("saisons_year"), rs.getInt("points_total"), rs.getInt("position")));
+                list.add(new ClassementEquipes(rs.getInt("classementE_id"), rs.getInt("equipes_equipe_id"), rs.getInt("saisons_year"), rs.getInt("points_total"), rs.getInt("position")));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ClassementPilotesService.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ClassementEquipesService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list;
     }
 
     @Override
     public ClassementEquipes readById(int classementE_id) {
-        String req = "select * from classement_pilotes where classementE_id="+classementE_id;
+        String req = "select * from classement_equipes where classementE_id="+classementE_id;
         ClassementEquipes u = new ClassementEquipes();
 
         try {
@@ -115,7 +115,7 @@ public class ClassementEquipesService implements IService<ClassementEquipes> {
             rs = ste.executeQuery(req);
             while (rs.next()) {
                 u.setClassementE_id(rs.getInt("classementE_id"));
-                u.setEquipes_equipe_id(rs.getInt("pilotes_pilote_id"));
+                u.setEquipes_equipe_id(rs.getInt("equipes_equipe_id"));
                 u.setSaisons_year(rs.getInt("saisons_year"));
                 u.setPoints_total(rs.getInt("points_total"));
            
