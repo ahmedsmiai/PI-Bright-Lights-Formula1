@@ -17,27 +17,35 @@ public class Membre {
     private String role;
     private String nationalite;
     private Date date_naissance;
-    private int equipe_id;
+    private Equipe equipe;
 
     public Membre(){
         
     }
     
-    public Membre(int membre_id, String nom, String role, String nationalite, Date date_naissance, int equipe_id) {
+    public Membre(int membre_id, String nom, String role, String nationalite, Date date_naissance, Equipe equipe) {
         this.membre_id = membre_id;
         this.nom = nom;
         this.role = role;
         this.nationalite = nationalite;
         this.date_naissance = date_naissance;
-        this.equipe_id = equipe_id;
+        this.equipe = equipe;
     }
-
-    public Membre(String nom, String role, String nationalite, Date date_naissance, int equipe_id) {
+    
+    public Membre(int membre_id, String nom, String role, String nationalite, Date date_naissance) {
+        this.membre_id = membre_id;
         this.nom = nom;
         this.role = role;
         this.nationalite = nationalite;
         this.date_naissance = date_naissance;
-        this.equipe_id = equipe_id;
+    }
+
+    public Membre(String nom, String role, String nationalite, Date date_naissance, Equipe equipe) {
+        this.nom = nom;
+        this.role = role;
+        this.nationalite = nationalite;
+        this.date_naissance = date_naissance;
+        this.equipe = equipe;
     }
 
     public int getMembre_id() {
@@ -80,17 +88,17 @@ public class Membre {
         this.date_naissance = date_naissance;
     }
 
-    public int getEquipe_id() {
-        return equipe_id;
+    public Equipe getEquipe() {
+        return equipe;
     }
 
-    public void setEquipe_id(int equipe_id) {
-        this.equipe_id = equipe_id;
+    public void setEquipe(Equipe equipe) {
+        this.equipe = equipe;
     }
 
     @Override
     public String toString() {
-        return "Membre{" + "membre_id=" + membre_id + ", nom=" + nom + ", role=" + role + ", nationalite=" + nationalite + ", date_naissance=" + date_naissance + ", equipe_id=" + equipe_id + '}';
+        return "Membre{" + "membre_id=" + membre_id + ", nom=" + nom + ", role=" + role + ", nationalite=" + nationalite + ", date_naissance=" + date_naissance +'}';
     }
 
     @Override

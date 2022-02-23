@@ -5,6 +5,7 @@
  */
 package service;
 
+import entite.Equipe;
 import entite.Membre;
 import entite.Pilote;
 import java.sql.Connection;
@@ -26,7 +27,7 @@ public class PiloteService implements InterfaceService<Pilote>{
     private Connection conn;
     private Statement ste;
     private PreparedStatement pst;
-    private ResultSet rs;
+    private ResultSet rs,rc;
     
     public PiloteService() {
         conn = MyConnection.getInstance().getCnx();
@@ -36,7 +37,7 @@ public class PiloteService implements InterfaceService<Pilote>{
     public void insert(Pilote p) {
         //add Membre
         MembreService ms=new MembreService();
-        ms.insert(new Membre(p.getNom(),p.getRole(),p.getNationalite(),p.getDate_naissance(),p.getEquipe_id()));
+        ms.insert(new Membre(p.getNom(),p.getRole(),p.getNationalite(),p.getDate_naissance(),p.getEquipe()));
         //Get last Id inserted in membre
         int last=0;
         String sql="select max(membre_id) as last from membres";
@@ -90,7 +91,7 @@ public class PiloteService implements InterfaceService<Pilote>{
     public void update(Pilote p) {
         //update Membre
         MembreService ms=new MembreService();
-        ms.update(new Membre(p.getMembre_id(),p.getNom(),p.getRole(),p.getNationalite(),p.getDate_naissance(),p.getEquipe_id()));
+        ms.update(new Membre(p.getMembre_id(),p.getNom(),p.getRole(),p.getNationalite(),p.getDate_naissance(),p.getEquipe()));
         
         //update pilote
         String req ="UPDATE pilotes SET numero=? WHERE pilote_id = '"+p.getPilote_id()+"'";
@@ -112,7 +113,15 @@ public class PiloteService implements InterfaceService<Pilote>{
             ste=conn.createStatement();
             rs= ste.executeQuery(req);
             while(rs.next()){
-                list.add(new Pilote(rs.getInt("pilote_id"),rs.getInt("numero"),rs.getInt("membre_id"),rs.getString("nom"),rs.getString("role"),rs.getString("nationalite"),rs.getDate("date_naissance"),rs.getInt("equipe_id")));
+                String sql="select * from equipes where equipe_id="+rs.getInt("equipe_id");
+                rc= ste.executeQuery(sql);
+                if(rc.next()){
+                    Equipe eq=new Equipe(rc.getInt("equipe_id"),rc.getString("nom"),rc.getString("logo"),rc.getString("voiture"),rc.getString("pays_origin"));
+                    list.add(new Pilote(rs.getInt("pilote_id"),rs.getInt("numero"),rs.getInt("membre_id"),rs.getString("nom"),rs.getString("role"),rs.getString("nationalite"),rs.getDate("date_naissance"),eq));
+                }else{
+                    list.add(new Pilote(rs.getInt("pilote_id"),rs.getInt("numero"),rs.getInt("membre_id"),rs.getString("nom"),rs.getString("role"),rs.getString("nationalite"),rs.getDate("date_naissance"),null));
+                }
+                
             }
         } catch (SQLException ex) {
             Logger.getLogger(PiloteService.class.getName()).log(Level.SEVERE, null, ex);
@@ -128,8 +137,13 @@ public class PiloteService implements InterfaceService<Pilote>{
             ste=conn.createStatement();
             rs= ste.executeQuery(req);
             while(rs.next()){
-                Pilote p=new Pilote(rs.getInt("pilote_id"),rs.getInt("numero"),rs.getInt("membre_id"),rs.getString("nom"),rs.getString("role"),rs.getString("nationalite"),rs.getDate("date_naissance"),rs.getInt("equipe_id"));
-                pl=p;
+                String sql="select * from equipes where equipe_id="+rs.getInt("equipe_id");
+                rc= ste.executeQuery(sql);
+                if(rc.next()){
+                    Equipe eq=new Equipe(rc.getInt("equipe_id"),rc.getString("nom"),rc.getString("logo"),rc.getString("voiture"),rc.getString("pays_origin"));
+                    Pilote p=new Pilote(rs.getInt("pilote_id"),rs.getInt("numero"),rs.getInt("membre_id"),rs.getString("nom"),rs.getString("role"),rs.getString("nationalite"),rs.getDate("date_naissance"),eq);
+                    pl=p;
+                }
             }
         } catch (SQLException ex) {
             Logger.getLogger(PiloteService.class.getName()).log(Level.SEVERE, null, ex);
