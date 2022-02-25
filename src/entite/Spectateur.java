@@ -3,21 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package service;
+package entite;
 
-import java.util.List;
 /**
  *
  * @author win10LIGHT
  */
-public interface IService<T>{
-    void insert(T t);
-   void delete(int id);
-   
-   void update(T t);
-   
-   
-    List<T>read();
+public class Spectateur extends User {
     
-    T readById(int user_id);
 }

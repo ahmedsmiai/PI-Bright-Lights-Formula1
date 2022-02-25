@@ -4,12 +4,9 @@
  * and open the template in the editor.
  */
 package formula1;
-
 import entite.User;
-import entite.Role;
 import java.sql.*;
 import service.UserService;
-import service.RoleService;
 import utils.Datasource;
 
 /**
@@ -18,44 +15,39 @@ import utils.Datasource;
  */
 public class Formula1 {
 
+ 
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
-     UserService us = new UserService();
-        //RoleService rs = new RoleService();
+        // UserService us = new UserService();
+        
+               
         
         
-   Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+         //Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 
-      
-
-        
- //User u1 = new User("hamzanechi", "hamzanechi@gamil.com", "acab",timestamp,1);
-  // us.insertUserPst(u1);
    
-    //Role r1 = new Role("organosateur");
-       //rs.insertRolePst(r1);
+        
+         //  User u1 = new User("ahmedbahrouni", "ahmedbahrouni@gamil.com", "ahmed",timestamp,"admin");
+          // us.insertUserPst(u1);
+   
+            // User u2 = new User(1, "houssemhwass", "hwasss@gamil.com", "yassine123456",timestamp,"Organisateur");
+              // us.update(u2);
+       
+             // us.delete(12);
+             
+          //  us.envoyerMail("hamouday574@gmail.com"); 
+          
+         //  us.excel();
+           
+           //    us.login("youssefhamouda@gamil.com","acab");
+            // System.out.println(us.readById(12).toString());    //user
+          
+         //    System.out.println(us.cryptage("bhab"));    //user
 
-        //User u2 = new User(9, "yassine", "manaa@gamil.com", "yassine123456",timestamp,2);
-        //us.update(u2);
-        
-        //Role r2 = new Role(7,"organisateur");
-        //rs.update(r2);
-        
-       User u2 = new User(9,"yassine", "manaa@gamil.com", "manaa123",timestamp,2);
-        us.delete(u2);
-        
-        //Role r2 = new Role(6,"admin");
-        //rs.delete(r2);
-        
-       //System.out.println(us.readById(1).toString());    //user
-      // System.out.println(rs.readById(1).toString());    //role
-        
-        
-//System.out.println(us.read());    //user
-//System.out.println(rs.read());   //role
        
     }
 
