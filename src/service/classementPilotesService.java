@@ -19,7 +19,7 @@ import utils.Datasource;
  *
  * @author qwiw
  */
-public class classementPilotesService {
+public class classementPilotesService {  // test // 
     
 final private Connection conn;   ///////////////////////////////////////////////////////////////////////////added final to connection 
     private Statement ste;
