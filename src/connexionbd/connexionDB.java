@@ -39,10 +39,10 @@ public class connexionDB {
 //        Date d1=new Date(2022-01-03);
 //        Date d2=new Date(2002-11-03);
         
-        LocalDate d1= LocalDate.of(2011,01,01) ;
-        LocalDate d2= LocalDate.of(2019,11,11) ;
+        LocalDate d1= LocalDate.of(2012,02,02) ;
+        LocalDate d2= LocalDate.of(2019,12,12) ;
         
-        Saison s1=new Saison(2030,d1,d2);
+        Saison s1=new Saison(2039,d1,d2);
 //        Saison s2=new Saison(2021);
 //        Saison s3=new Saison(2019,d1,d2);
       
