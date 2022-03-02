@@ -65,7 +65,7 @@ public class Saison {
 
     @Override
     public String toString() {
-        return "Saison{" + "year=" + year + ", date_debut=" + date_debut + ", date_fin=" + date_fin + '}';
+        return String.valueOf(this.getYear());
     }
 
   

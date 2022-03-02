@@ -1,0 +1,19 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 25 févr. 2022, 14:42:16
+    Author     : nechi
+*/
+
+.menuItem:hover{
+	-fx-border-color :#FE2E02;
+	-fx-border-width: 0px 0px 3px 0px;
+}
+.sidebarItem:hover{
+	-fx-background-color : #AC2B0F;
+	-fx-border-color : WHITE;
+	-fx-border-width:0px 0px 0px 3px;
+}

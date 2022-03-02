@@ -8,10 +8,10 @@ package entite;
 public class Participation {
 
     private int participation_id;
-    private int pilote_id;
-    private int equipe_id;
-    private int course_id;
-    private int qualifying_id;
+    private Pilote pilote;
+    private Equipe equipe;
+    private Course course;
+    private Qualifying qualifying;
     private int grid;
     private int position;
     private int points;
@@ -20,22 +20,23 @@ public class Participation {
     
     
     //--------constructors--------//
- public Participation(int participation_id, int pilote_id, int equipe_id, int course_id, int qualifying_id, int grid, int position, int points) {
+ public Participation(int participation_id, Pilote pilote, Equipe equipe, Course course, Qualifying qualifying, int grid, int position, int points) {
         this.participation_id = participation_id;
-        this.pilote_id = pilote_id;
-        this.equipe_id = equipe_id;
-        this.course_id = course_id;
-        this.qualifying_id = qualifying_id;
+        this.pilote = pilote;
+        this.equipe = equipe;
+        this.course = course;
+        this.qualifying = qualifying;
         this.grid = grid;
         this.position = position;
         this.points = points;
     }
  
-  public Participation(int pilote_id, int equipe_id, int course_id, int qualifying_id, int grid, int position, int points) {
-        this.pilote_id = pilote_id;
-        this.equipe_id = equipe_id;
-        this.course_id = course_id;
-        this.qualifying_id = qualifying_id;
+ 
+  public Participation(Pilote pilote, Equipe equipe, Course course, Qualifying qualifying, int grid, int position, int points) {
+        this.pilote = pilote;
+        this.equipe = equipe;
+        this.course = course;
+        this.qualifying = qualifying;
         this.grid = grid;
         this.position = position;
         this.points = points;
@@ -54,21 +55,22 @@ public class Participation {
         return participation_id;
     }
 
-    public int getPilote_id() {
-        return pilote_id;
+    public Pilote getPilote() {
+        return pilote;
     }
 
-    public int getEquipe_id() {
-        return equipe_id;
+    public Equipe getEquipe() {
+        return equipe;
     }
 
-    public int getCourse_id() {
-        return course_id;
+    public Course getCourse() {
+        return course;
     }
 
-    public int getQualifying_id() {
-        return qualifying_id;
+    public Qualifying getQualifying() {
+        return qualifying;
     }
+
 
     public int getGrid() {
         return grid;
@@ -88,21 +90,23 @@ public class Participation {
         this.participation_id = participation_id;
     }
 
-    public void setPilote_id(int pilote_id) {
-        this.pilote_id = pilote_id;
+    public void setPilote(Pilote pilote) {
+        this.pilote = pilote;
     }
 
-    public void setEquipe_id(int equipe_id) {
-        this.equipe_id = equipe_id;
+    public void setEquipe(Equipe equipe) {
+        this.equipe = equipe;
     }
 
-    public void setCourse_id(int course_id) {
-        this.course_id = course_id;
+    public void setCourse(Course course) {
+        this.course = course;
     }
 
-    public void setQualifying_id(int qualifying_id) {
-        this.qualifying_id = qualifying_id;
+    public void setQualifying(Qualifying qualifying) {
+        this.qualifying = qualifying;
     }
+
+   
 
     public void setGrid(int grid) {
         this.grid = grid;
@@ -118,8 +122,13 @@ public class Participation {
 
     @Override
     public String toString() {
-        return "Participation{" + "participation_id=" + participation_id + ", pilote_id=" + pilote_id + ", equipe_id=" + equipe_id + ", course_id=" + course_id + ", qualifying_id=" + qualifying_id + ", grid=" + grid + ", position=" + position + ", points=" + points + '}';
+        return "Participation{" + "participation_id=" + participation_id + ", pilote=" + pilote + ", equipe=" + equipe + ", course=" + course + ", qualifying=" + qualifying + ", grid=" + grid + ", position=" + position + ", points=" + points + '}';
     }
+    
+    public String toString2() {
+        return "participation_id=" + participation_id + ", numero="+pilote.getNumero()+", nom pilote=" + pilote.getNom() + ", equipe=" + equipe.getNom() + ", course=" + course.getCourse_nom()  + ", grid=" + grid + ", position=" + position + ", points=" + points ;
+    }
+    
             
 
     @Override

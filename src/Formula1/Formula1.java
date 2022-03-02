@@ -4,8 +4,10 @@
  * and open the template in the editor.
  */
 package Formula1;
+
 import entite.*;
 import service.*;
+
 public class Formula1 {
 
     /**
@@ -13,12 +15,19 @@ public class Formula1 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+     
 
-        RoleService rs = new RoleService();
-        QualifyingService qs = new QualifyingService();
+        ParticipationService pars = new ParticipationService();
 
-        Role r = new Role("new role");
-        rs.insertRolePst(r);
+        pars.read().forEach((p)->{
+            System.out.println(p.getQualifying().getQ1());
+        });
+        
+       
+        
+                
+        
+
     }
 
-}
+    }

@@ -106,13 +106,13 @@ public class PiloteService implements InterfaceService<Pilote>{
 
     @Override
     public List<Pilote> read() {
-        String req="select * from membres m,pilotes p where m.membre_id=p.pilote_id";
+        String req="select * from membres m join pilotes p where m.membre_id=p.pilote_id";
         List<Pilote> list=new ArrayList<>();
         try {
             ste=conn.createStatement();
             rs= ste.executeQuery(req);
             while(rs.next()){
-                list.add(new Pilote(rs.getInt("pilote_id"),rs.getInt("numero"),rs.getInt("membre_id"),rs.getString("nom"),rs.getString("role"),rs.getString("nationalite"),rs.getDate("date_naissance"),rs.getInt("equipe_id")));
+                list.add(new Pilote(rs.getInt("pilote_id"),rs.getInt("numero"),rs.getString("nom"),rs.getString("role"),rs.getString("nationalite"),rs.getDate("date_naissance"),rs.getInt("equipe_id")));
             }
         } catch (SQLException ex) {
             Logger.getLogger(PiloteService.class.getName()).log(Level.SEVERE, null, ex);
@@ -128,7 +128,7 @@ public class PiloteService implements InterfaceService<Pilote>{
             ste=conn.createStatement();
             rs= ste.executeQuery(req);
             while(rs.next()){
-                Pilote p=new Pilote(rs.getInt("pilote_id"),rs.getInt("numero"),rs.getInt("membre_id"),rs.getString("nom"),rs.getString("role"),rs.getString("nationalite"),rs.getDate("date_naissance"),rs.getInt("equipe_id"));
+                Pilote p=new Pilote(rs.getInt("pilote_id"),rs.getInt("numero"),rs.getString("nom"),rs.getString("role"),rs.getString("nationalite"),rs.getDate("date_naissance"),rs.getInt("equipe_id"));
                 pl=p;
             }
         } catch (SQLException ex) {

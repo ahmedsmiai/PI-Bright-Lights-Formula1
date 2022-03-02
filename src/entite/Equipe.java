@@ -66,7 +66,7 @@ public class Equipe {
 
     @Override
     public String toString() {
-        return "Equipe{" + "equipe_id=" + equipe_id + ", nom=" + nom + ", voiture=" + voiture + ", pays_origin=" + pays_origin + '}';
+        return this.getNom();
     }
 
     @Override

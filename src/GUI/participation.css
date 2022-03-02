@@ -1,0 +1,52 @@
+.mainFxmlClass {
+
+}
+
+.combo-box-base {
+    -fx-pref-width: 100;
+    -fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, white;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 3px, 3px, 2px, 1px;
+}
+.rich-green{
+    -fx-background-color: 
+        #000000,
+        linear-gradient(#8DC26F, #76b852),
+        linear-gradient(#8DC26F, #76b852),
+        linear-gradient(#8DC26F , #76b852);
+    -fx-background-insets: 0,1,2,3;
+    -fx-background-radius: 3,2,2,2;
+    -fx-padding: 12 30 12 30;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+}
+
+.rich-red{
+    -fx-background-color: 
+        #000000,
+        linear-gradient(#e35d5b, #e53935),
+        linear-gradient(#e35d5b, #e53935),
+        linear-gradient(#e35d5b, #e53935);
+    -fx-background-insets: 0,1,2,3;
+    -fx-background-radius: 3,2,2,2;
+    -fx-padding: 12 30 12 30;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+}
+
+
+.rich-blue {
+    -fx-background-color: 
+        #000000,
+        linear-gradient(#7ebcea, #2f4b8f),
+        linear-gradient(#426ab7, #263e75),
+        linear-gradient(#395cab, #223768);
+    -fx-background-insets: 0,1,2,3;
+    -fx-background-radius: 3,2,2,2;
+    -fx-padding: 12 30 12 30;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+}
+.rich-blue Text {
+    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1);
+}

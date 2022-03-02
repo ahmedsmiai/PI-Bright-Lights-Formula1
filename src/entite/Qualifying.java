@@ -1,5 +1,6 @@
 
 package entite;
+import entite.*;
 
 public class Qualifying {
     
@@ -8,26 +9,26 @@ public class Qualifying {
     private String q2;
     private String q3; 
     private int position;
-    private int pilote_id;
-    private int course_id;
+    private Pilote pilote;
+    private Course course;
 
-    public Qualifying(int qualifying_id, String q1, String q2, String q3, int position, int pilote_id, int course_id) {
+    public Qualifying(int qualifying_id, String q1, String q2, String q3, int position, Pilote pilote, Course course) {
         this.qualifying_id = qualifying_id;
         this.q1 = q1;
         this.q2 = q2;
         this.q3 = q3;
         this.position = position;
-        this.pilote_id = pilote_id;
-        this.course_id = course_id;
+        this.pilote = pilote;
+        this.course = course;
     }
 
-    public Qualifying(String q1, String q2, String q3, int position, int pilote_id, int course_id) {
+    public Qualifying(String q1, String q2, String q3, int position, Pilote pilote, Course course) {
         this.q1 = q1;
         this.q2 = q2;
         this.q3 = q3;
         this.position = position;
-        this.pilote_id = pilote_id;
-        this.course_id = course_id;
+        this.pilote = pilote;
+        this.course = course;
     }
 
     public Qualifying() {
@@ -35,7 +36,7 @@ public class Qualifying {
 
     @Override
     public String toString() {
-        return "Qualifying{" + "qualifying_id=" + qualifying_id + ", q1=" + q1 + ", q2=" + q2 + ", q3=" + q3 + ", position=" + position + ", pilote_id=" + pilote_id + ", course_id=" + course_id + '}';
+        return "Qualifying{" + "qualifying_id=" + qualifying_id + ", q1=" + q1 + ", q2=" + q2 + ", q3=" + q3 + ", position=" + position + ", pilote_id=" + pilote.getPilote_id() + ", course_id=" + course.getCourse_id() + '}';
     }
     
 
@@ -59,13 +60,22 @@ public class Qualifying {
         return position;
     }
 
-    public int getPilote_id() {
-        return pilote_id;
+    public void setPilote(Pilote pilote) {
+        this.pilote = pilote;
     }
 
-    public int getCourse_id() {
-        return course_id;
+    public void setCourse(Course course) {
+        this.course = course;
     }
+
+    public Pilote getPilote() {
+        return pilote;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
 
     public void setQualifying_id(int qualifying_id) {
         this.qualifying_id = qualifying_id;
@@ -87,13 +97,7 @@ public class Qualifying {
         this.position = position;
     }
 
-    public void setPilote_id(int pilote_id) {
-        this.pilote_id = pilote_id;
-    }
-
-    public void setCourse_id(int course_id) {
-        this.course_id = course_id;
-    }
+  
 
    
     @Override

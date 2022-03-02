@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1200.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.DashboardController">
+    <children>
+        <BorderPane fx:id="BorderPane" layoutX="156.0" layoutY="112.0" prefHeight="700.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <top>
+                <AnchorPane prefHeight="75.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <Pane layoutY="-68.0" prefHeight="37.0" prefWidth="1200.0" style="-fx-background-color: #FE2E02;" AnchorPane.bottomAnchor="38.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                                <ImageView fitHeight="18.0" fitWidth="15.0" layoutX="1159.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@images/check.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </Pane>
+                        <HBox layoutX="269.0" layoutY="38.0" prefHeight="59.0" prefWidth="931.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="269.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="38.0">
+                            <children>
+                                <Button alignment="BASELINE_LEFT" prefHeight="59.0" prefWidth="131.0" styleClass="menuItem" text="Dashboard" textAlignment="CENTER">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <graphic>
+                                        <ImageView fitHeight="18.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@images/home_black.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                <Button alignment="BASELINE_LEFT" prefHeight="59.0" prefWidth="131.0" styleClass="menuItem" text="Equipe">
+                                    <graphic>
+                                        <ImageView fitHeight="17.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@images/team_black.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                <Button alignment="BASELINE_LEFT" prefHeight="60.0" prefWidth="131.0" styleClass="menuItem" text="Course">
+                                    <graphic>
+                                        <ImageView fitHeight="24.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@images/course_black.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                <Button alignment="BASELINE_LEFT" prefHeight="59.0" prefWidth="131.0" styleClass="menuItem" text="Circuit">
+                                    <graphic>
+                                        <ImageView fitHeight="17.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@images/circuit_black.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                <Button alignment="BASELINE_LEFT" prefHeight="60.0" prefWidth="131.0" styleClass="menuItem" text="Classement">
+                                    <graphic>
+                                        <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@images/classement_black.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                <Button alignment="BASELINE_LEFT" prefHeight="60.0" prefWidth="131.0" styleClass="menuItem" text="Se déconnecter">
+                                    <graphic>
+                                        <ImageView fitHeight="17.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@images/user.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                            </children>
+                        </HBox>
+                    </children>
+                </AnchorPane>
+            </top>
+            <left>
+                <AnchorPane fx:id="slider" prefHeight="651.0" prefWidth="270.0" style="-fx-background-color: #FE2E02;" BorderPane.alignment="CENTER">
+                    <children>
+                        <VBox layoutX="60.0" layoutY="165.0" prefHeight="455.0" prefWidth="270.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="165.0">
+                            <children>
+                                <Button alignment="BASELINE_LEFT" prefHeight="0.0" prefWidth="270.0" styleClass="sidebarItem" text=" DASHBOARD" textFill="#f8f3f3">
+                                    <font>
+                                        <Font name="System Bold" size="22.0" />
+                                    </font>
+                                    <graphic>
+                                        <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@images/home.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                <Button alignment="BASELINE_LEFT" prefHeight="0.0" prefWidth="270.0" styleClass="sidebarItem" text="ÉQUIPE" textFill="#f8f3f3">
+                                    <font>
+                                        <Font name="System Bold" size="22.0" />
+                                    </font>
+                                    <graphic>
+                                        <ImageView fitHeight="28.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@images/team.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                <Button alignment="BASELINE_LEFT" prefHeight="0.0" prefWidth="270.0" styleClass="sidebarItem" text="COURSE" textFill="#f8f3f3">
+                                    <font>
+                                        <Font name="System Bold" size="22.0" />
+                                    </font>
+                                    <graphic>
+                                        <ImageView fitHeight="28.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@images/course.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                <Button alignment="BASELINE_LEFT" prefHeight="0.0" prefWidth="270.0" styleClass="sidebarItem" text=" CIRCUIT" textFill="#f8f3f3">
+                                    <font>
+                                        <Font name="System Bold" size="22.0" />
+                                    </font>
+                                    <graphic>
+                                        <ImageView fitHeight="33.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@images/circuit.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                <Button alignment="BASELINE_LEFT" prefHeight="0.0" prefWidth="270.0" styleClass="sidebarItem" text="CLASSEMENT" textFill="#f8f3f3">
+                                    <font>
+                                        <Font name="System Bold" size="22.0" />
+                                    </font>
+                                    <graphic>
+                                        <ImageView fitHeight="32.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@images/classement.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                
+                        <Button fx:id="participation" alignment="BASELINE_LEFT" onAction="#OpenParticipation" prefHeight="0.0" prefWidth="270.0" styleClass="sidebarItem" text="PARTICIPATION" textFill="#f8f3f3">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/home.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                                <Button alignment="BASELINE_LEFT" prefHeight="0.0" prefWidth="270.0" styleClass="sidebarItem" text="  QUALIFICATION" textFill="#f8f3f3">
+                                    <font>
+                                        <Font name="System Bold" size="22.0" />
+                                    </font>
+                                    <graphic>
+                                        <ImageView fitHeight="37.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@images/qualification.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                <Button alignment="BASELINE_LEFT" prefHeight="0.0" prefWidth="270.0" styleClass="sidebarItem" text="TICKET" textFill="#f8f3f3">
+                                    <font>
+                                        <Font name="System Bold" size="22.0" />
+                                    </font>
+                                    <graphic>
+                                        <ImageView fitHeight="39.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@images/ticket.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                            </children>
+                        </VBox>
+                        <ImageView fitHeight="65.0" fitWidth="233.0" layoutX="19.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@images/f1white.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </AnchorPane>
+            </left>
+            <center>
+                <AnchorPane fx:id="body" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="BOTTOM_RIGHT" />
+            </center>
+            <bottom>
+                <AnchorPane prefHeight="0.0" prefWidth="1200.0" BorderPane.alignment="CENTER" />
+            </bottom>
+            <right>
+                <AnchorPane prefHeight="200.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
+            </right>
+        </BorderPane>
+    </children>
+</AnchorPane>

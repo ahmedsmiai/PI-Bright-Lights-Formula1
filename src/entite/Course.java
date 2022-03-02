@@ -77,7 +77,7 @@ public class Course {
 
     @Override
     public String toString() {
-        return "course{" + "course_id=" + course_id + ", nom=" + course_nom + ", date=" + date + ",circuit id =" + circuit_circuit_id +",saison year =" +saison_year+ '}';
+        return this.getCourse_nom();
     }
     @Override
     public boolean equals(Object obj) {

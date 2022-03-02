@@ -15,8 +15,8 @@ public class Pilote extends Membre{
     private int pilote_id;
     private int numero;
 
-    public Pilote(int pilote_id, int numero, int membre_id, String nom, String role, String nationalite, Date date_naissance, int equipe_id) {
-        super(membre_id, nom, role, nationalite, date_naissance, equipe_id);
+    public Pilote(int pilote_id, int numero, String nom, String role, String nationalite, Date date_naissance, int equipe_id) {
+        super(nom, role, nationalite, date_naissance, equipe_id);
         this.pilote_id = pilote_id;
         this.numero = numero;
     }
@@ -56,7 +56,12 @@ public class Pilote extends Membre{
     }
 
     @Override
-    public String toString() {
+    
+    public String toString(){
+        return super.getNom();
+    }
+    
+    public String toString1() {
         String ch=super.toString();
         return ch+"Pilote{" + "pilote_id=" + pilote_id + ", numero=" + numero + '}';
     }
