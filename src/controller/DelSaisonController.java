@@ -87,7 +87,7 @@ public class DelSaisonController implements Initializable {
 
     @FXML
     private void switchToSaison(ActionEvent event)  throws IOException{
-  root = FXMLLoader.load(getClass().getResource("/view/Saison22.fxml"));
+  root = FXMLLoader.load(getClass().getResource("/view/pilote.fxml"));
   stage = (Stage)((Node)event.getSource()).getScene().getWindow();
   scene = new Scene(root);
   stage.setScene(scene);

@@ -51,13 +51,9 @@ public class ClassementP22Controller implements Initializable {
     private AnchorPane listedesComptes;
     @FXML
     private TableView<ClassementPilotes> tableRead;
-    @FXML
     private TableColumn<ClassementPilotes, Integer> colonneclassement_id;
-    @FXML
     private TableColumn<ClassementPilotes, Integer> colonnesaisons_year;
-    @FXML
     private TableColumn<ClassementPilotes, Integer> colonnepilotes_pilote_id;
-    @FXML
     private TableColumn<ClassementPilotes, Integer> points_total;
     
     @FXML
@@ -73,6 +69,14 @@ public ObservableList<ClassementPilotes> list = FXCollections.observableArrayLis
          private ClassementPilotesService s;
     @FXML
     private Button btnExcel1;
+    @FXML
+
+//    private TableColumn<?, ?> colonneYear;
+//    @FXML
+//    private TableColumn<?, ?> colonneDatedeb;
+//    @FXML
+//    private TableColumn<?, ?> colonneDatefin;
+    
     /**
      * Initializes the controller class.
      */
@@ -86,9 +90,9 @@ public ObservableList<ClassementPilotes> list = FXCollections.observableArrayLis
      private void RefreshTable(){
            ObservableList<ClassementPilotes> list=FXCollections.observableArrayList();   
         list.addAll(s.read());
-        colonneclassement_id.setCellValueFactory(new PropertyValueFactory("classementP_id "));
-        colonnesaisons_year.setCellValueFactory(new PropertyValueFactory("saisons_year "));
-        colonnepilotes_pilote_id.setCellValueFactory(new PropertyValueFactory("pilotes_pilote_id "));
+        colonneclassement_id.setCellValueFactory(new PropertyValueFactory("classementP_id"));
+        colonnesaisons_year.setCellValueFactory(new PropertyValueFactory("saisons_year"));
+        colonnepilotes_pilote_id.setCellValueFactory(new PropertyValueFactory("pilotes_pilote_id"));
        points_total.setCellValueFactory(new PropertyValueFactory("points_total"));
        
         tableRead.setItems(list);
@@ -97,7 +101,7 @@ public ObservableList<ClassementPilotes> list = FXCollections.observableArrayLis
      
     @FXML
     private void onCreate(ActionEvent event) throws IOException{
-         final FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/AddClassementP.fxml"));
+         final FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/AddClassement.fxml"));
             final Node node;
             node = fxmlLoader.load();
             AnchorPane pane=new AnchorPane(node);

@@ -52,6 +52,10 @@
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="choisPilote" layoutX="286.0" layoutY="208.0" prefHeight="33.0" prefWidth="220.0" />
+      <TextField fx:id="textfieldPiloteid" layoutX="286.0" layoutY="213.0" prefHeight="25.0" prefWidth="220.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
    </children>
 </AnchorPane>

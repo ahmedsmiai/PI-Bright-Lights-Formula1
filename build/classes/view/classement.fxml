@@ -7,7 +7,7 @@
 
 <AnchorPane id="AnchorPane" fx:id="classement" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="930.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ClassementController">
    <children>
-      <Button layoutX="311.0" layoutY="208.0" mnemonicParsing="false" onAction="#switchToClassementPilotes" prefHeight="53.0" prefWidth="286.0" style="-fx-background-color: WHITE; -fx-border-color: #fe2e02;" text="classement pilotes" textFill="#fe2e02">
+      <Button fx:id="pilotes" layoutX="311.0" layoutY="208.0" mnemonicParsing="false" onAction="#switchToClassementPilotes" prefHeight="53.0" prefWidth="286.0" style="-fx-background-color: WHITE; -fx-border-color: #fe2e02;" text="classement pilotes" textFill="#fe2e02">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
@@ -22,7 +22,7 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Button>
-      <Button layoutX="311.0" layoutY="276.0" mnemonicParsing="false" onAction="#switchToClassementEquipes" prefHeight="49.0" prefWidth="286.0" style="-fx-background-color: WHITE; -fx-border-color: #fe2e02;" text="classement equipes" textFill="#fe2e02">
+      <Button fx:id="equipes" layoutX="311.0" layoutY="276.0" mnemonicParsing="false" onAction="#switchToClassementEquipes" prefHeight="49.0" prefWidth="286.0" style="-fx-background-color: WHITE; -fx-border-color: #fe2e02;" text="classement equipes" textFill="#fe2e02">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>

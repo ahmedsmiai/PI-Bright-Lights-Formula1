@@ -3,9 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
+package view;
 
-
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import entite.Saison;
 import java.sql.Date;
 import java.time.LocalDate;
@@ -41,10 +51,12 @@ import javafx.stage.Stage;
  *
  * @author qwiw
  */
-public class AddClassementPController implements Initializable {
+public class AddpiloteController implements Initializable {
 
     @FXML
     private AnchorPane ajout;
+    @FXML
+    private TextField textfieldPts;
     @FXML
     private Button btnAjouter;
     @FXML
@@ -54,14 +66,12 @@ public class AddClassementPController implements Initializable {
     @FXML
     private Label nom_fichier;
     @FXML
-    private TextField textfieldPts;
-    @FXML
-    private ChoiceBox<Saison> choisYear;
+    private ChoiceBox<?> choisYear;
     @FXML
     private TextField textfieldPiloteid;
 
     
-             private Stage stage;
+     private Stage stage;
  private Scene scene;
  private Parent root;
     /**
@@ -70,31 +80,14 @@ public class AddClassementPController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-         SaisonService ss=new SaisonService();   
-     
-        choisYear.getItems().addAll(ss.readjustid());
     }    
 
     @FXML
     private void onCreate(ActionEvent event) {
-         Saison s  = choisYear.getSelectionModel().getSelectedItem();
-     int year = s.getYear();
-     int piloteid = Integer.parseInt(textfieldPiloteid.getText());
-   int ptst = Integer.parseInt(textfieldPts.getText());
-     
-     ClassementPilotes y = new ClassementPilotes(year , piloteid, ptst) ;
-
-       ClassementPilotesService ss=new ClassementPilotesService();   
-       ss.insertclassemet_pilotePst(y);
     }
 
     @FXML
-    private void switchToSaison(ActionEvent event) throws IOException  {
-          root = FXMLLoader.load(getClass().getResource("/view/pilote.fxml"));
-  stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-  scene = new Scene(root);
-  stage.setScene(scene);
-  stage.show();
+    private void switchToSaison(ActionEvent event) {
     }
     
 }

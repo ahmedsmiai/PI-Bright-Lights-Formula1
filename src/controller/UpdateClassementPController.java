@@ -41,56 +41,56 @@ import javafx.stage.Stage;
  *
  * @author qwiw
  */
-public class AddClassementPController implements Initializable {
+public class UpdateClassementPController implements Initializable {
 
     @FXML
     private AnchorPane ajout;
     @FXML
-    private Button btnAjouter;
+    private Button btnUpdate;
     @FXML
     private Label myFile;
     @FXML
-    private ImageView image;
-    @FXML
     private Label nom_fichier;
     @FXML
-    private TextField textfieldPts;
-    @FXML
-    private ChoiceBox<Saison> choisYear;
-    @FXML
-    private TextField textfieldPiloteid;
+    private ChoiceBox<ClassementPilotes> yearChoise;
 
     
-             private Stage stage;
+          private Stage stage;
  private Scene scene;
  private Parent root;
+    @FXML
+    private TextField textfieldPts;
+ 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-         SaisonService ss=new SaisonService();   
+         ClassementPilotesService ss=new ClassementPilotesService();   
      
-        choisYear.getItems().addAll(ss.readjustid());
+        yearChoise.getItems().addAll(ss.readjustid());
     }    
 
     @FXML
-    private void onCreate(ActionEvent event) {
-         Saison s  = choisYear.getSelectionModel().getSelectedItem();
-     int year = s.getYear();
-     int piloteid = Integer.parseInt(textfieldPiloteid.getText());
-   int ptst = Integer.parseInt(textfieldPts.getText());
-     
-     ClassementPilotes y = new ClassementPilotes(year , piloteid, ptst) ;
+    private void onUpdate(ActionEvent event) {
+        ClassementPilotes s  = yearChoise.getSelectionModel().getSelectedItem();
+     int id = s.getClassementP_id();
+    
+    
+        
+        
+       int pts = Integer.parseInt(textfieldPts.getText());
+        
+        ClassementPilotes y = new ClassementPilotes(id , pts) ;
 
        ClassementPilotesService ss=new ClassementPilotesService();   
-       ss.insertclassemet_pilotePst(y);
+       ss.update(y);
     }
 
     @FXML
-    private void switchToSaison(ActionEvent event) throws IOException  {
-          root = FXMLLoader.load(getClass().getResource("/view/pilote.fxml"));
+    private void switchToSaison(ActionEvent event)throws IOException {
+                  root = FXMLLoader.load(getClass().getResource("/view/pilote.fxml"));
   stage = (Stage)((Node)event.getSource()).getScene().getWindow();
   scene = new Scene(root);
   stage.setScene(scene);

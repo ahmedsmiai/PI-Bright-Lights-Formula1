@@ -40,11 +40,27 @@ public class ClassementPilotes{
       
         this.position = position;
     }
+     public ClassementPilotes (int classementP_id, int points_total) {
+        this.classementP_id  = classementP_id ;
+    
+        this.points_total  = points_total ;
+      
+  
+    }
+    
+    
+     
      public ClassementPilotes (int pilotes_pilote_id ) {
         this.pilotes_pilote_id  = pilotes_pilote_id ;
 
     }
-
+public ClassementPilotes ( int saisons_year,int pilotes_pilote_id , int points_total ) {
+        this.pilotes_pilote_id  = pilotes_pilote_id ;
+        this.saisons_year = saisons_year;
+        this.points_total  = points_total ;
+      
+      
+    }
     
 
     
@@ -91,9 +107,13 @@ public class ClassementPilotes{
         this.position = position;
     }
 
-     @Override
+//     @Override
+//    public String toString() {
+//        return "classement_pilotes{" + "classementP_id=" + classementP_id + ", pilotes_pilote_id =" + pilotes_pilote_id  + ", saisons_year=" + saisons_year +", points_total =" + points_total  +", position=" + position + '}';
+//    }
+      @Override
     public String toString() {
-        return "classement_pilotes{" + "classementP_id=" + classementP_id + ", pilotes_pilote_id =" + pilotes_pilote_id  + ", saisons_year=" + saisons_year +", points_total =" + points_total  +", position=" + position + '}';
+        return "" + classementP_id + "";
     }
 
     @Override

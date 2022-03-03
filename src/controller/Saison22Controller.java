@@ -109,9 +109,7 @@ public ObservableList<Saison> list = FXCollections.observableArrayList();
             listedesComptes.getChildren().setAll(pane);
     }
 
-    @FXML
-    private void onExcel(ActionEvent event) {
-    }
+
 
     @FXML
     private void onDelete(ActionEvent event) {
@@ -143,6 +141,10 @@ Alert alert=new Alert(Alert.AlertType.CONFIRMATION);
 
     @FXML
     private void onStat(ActionEvent event) {
+    }
+    
+        @FXML
+    private void onExcel(ActionEvent event) {
     }
     
 }

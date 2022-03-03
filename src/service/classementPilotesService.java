@@ -53,13 +53,13 @@ public class ClassementPilotesService implements IService<ClassementPilotes> {
     }
 
     public void insertclassemet_pilotePst(ClassementPilotes u) {
-        String req = "insert into classement_pilotes (pilotes_pilote_id,saisons_year,points_total,position) values (?,?,?,?)";
+        String req = "insert into classement_pilotes (pilotes_pilote_id,saisons_year,points_total) values (?,?,?)";
         try {
             pst = conn.prepareStatement(req);
             pst.setInt(1, u.getPilotes_pilote_id());
             pst.setInt(2, u.getSaisons_year());
             pst.setInt(3, u.getPoints_total());
-            pst.setInt(4, u.getPosition());
+           
             pst.executeUpdate();
 
         } catch (SQLException ex) {
@@ -70,6 +70,7 @@ public class ClassementPilotesService implements IService<ClassementPilotes> {
 
     @Override
     public void delete(ClassementPilotes u) {
+          System.out.println("delete pilote service");
         String req = "DELETE FROM classement_pilotes WHERE classementP_id=?";
         try {
             pst = conn.prepareStatement(req);
@@ -109,6 +110,22 @@ public class ClassementPilotesService implements IService<ClassementPilotes> {
             rs = ste.executeQuery(req);
             while (rs.next()) {
                 list.add(new ClassementPilotes(rs.getInt("classementP_id"), rs.getInt("pilotes_pilote_id"), rs.getInt("saisons_year"), rs.getInt("points_total"), rs.getInt("position")));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ClassementPilotesService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+    
+      
+    public List<ClassementPilotes> readjustid() {
+        String req = "select classementP_id from classement_pilotes";
+        List<ClassementPilotes> list = new ArrayList<>();
+        try {
+            ste = conn.createStatement();
+            rs = ste.executeQuery(req);
+            while (rs.next()) {
+                list.add(new ClassementPilotes(rs.getInt("classementP_id")));
             }
         } catch (SQLException ex) {
             Logger.getLogger(ClassementPilotesService.class.getName()).log(Level.SEVERE, null, ex);
