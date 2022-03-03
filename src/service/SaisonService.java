@@ -81,21 +81,21 @@ public class SaisonService implements IService<Saison> {
      try{
 
 
-            String req = "update saisons set date_debut=?,date_fin=? where year=?";
+            String req = "update saisons set date_debut='"+s.getDate_debut()+"', date_fin='"+s.getDate_fin()+"' where year="+s.getYear();
 
-            pst =conn.prepareStatement(req);
+            ste =conn.createStatement();
             
-            pst.setInt(1,s.getYear());
-            Date dateDeb = Date.valueOf(s.getDate_debut());
-            pst.setDate(2,dateDeb);
-            Date dateFin = Date.valueOf(s.getDate_fin());
-            pst.setDate(3,dateFin);
+//            pst.setInt(1,s.getYear());
+//            Date dateDeb = Date.valueOf(s.getDate_debut());
+//            pst.setDate(2,dateDeb);
+//            Date dateFin = Date.valueOf(s.getDate_fin());
+//            pst.setDate(3,dateFin);
            
-            pst.executeUpdate();
-            pst.close();
-            conn.close();
+            ste.executeUpdate(req);
+           
+            System.out.println("saison mdf avec succe");
         }
-        catch(SQLException e){e.printStackTrace();}
+        catch(SQLException ex) {Logger.getLogger(SaisonService.class.getName()).log(Level.SEVERE, null, ex);}
     }
 
     @Override
@@ -107,6 +107,23 @@ public class SaisonService implements IService<Saison> {
             rs= ste.executeQuery(req);
             while(rs.next()){
                 list.add(new Saison(rs.getInt("year"), rs.getDate("date_debut").toLocalDate(), rs.getDate("date_fin").toLocalDate()));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SaisonService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+    
+     
+    public List<Saison> readjustid() {
+                    String req="select year from saisons";
+                    Saison s = new Saison();
+                    List<Saison> list=new ArrayList<>();
+        try {
+            ste=conn.createStatement();
+            rs= ste.executeQuery(req);
+            while(rs.next()){
+                list.add(new Saison(rs.getInt("year")));
             }
         } catch (SQLException ex) {
             Logger.getLogger(SaisonService.class.getName()).log(Level.SEVERE, null, ex);
@@ -136,4 +153,26 @@ public class SaisonService implements IService<Saison> {
     
     return s ;
         }
+      
+    public Saison readByYear() {
+       String req = "select year from saisons ";
+        Saison s = new Saison();
+
+        try {
+            ste = conn.createStatement();
+            rs = ste.executeQuery(req);
+            while (rs.next()) {
+                s.setYear(rs.getInt("year"));
+              
+           
+    }
+        }
+    catch (SQLException ex) {
+            Logger.getLogger(SaisonService.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }
+    
+    return s ;
+        }
+
 }

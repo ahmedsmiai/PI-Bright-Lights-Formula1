@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="Saison" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="930.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SaisonController">
+   <children>
+      <Button layoutX="311.0" layoutY="208.0" mnemonicParsing="false" onAction="#switchToAddSaison" prefHeight="53.0" prefWidth="286.0" style="-fx-background-color: WHITE; -fx-border-color: #fe2e02;" text="ajout" textFill="#fe2e02">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
+      <Label layoutX="371.0" layoutY="60.0" text="Saisons" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="48.0" />
+         </font>
+      </Label>
+      <Button layoutX="311.0" layoutY="346.0" mnemonicParsing="false" onAction="#switchToUpdSaison" prefHeight="49.0" prefWidth="286.0" style="-fx-background-color: WHITE; -fx-border-color: #fe2e02;" text="modifier" textAlignment="CENTER" textFill="#fe2e02">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
+      <Button layoutX="311.0" layoutY="276.0" mnemonicParsing="false" onAction="#switchToShowSaison" prefHeight="49.0" prefWidth="286.0" style="-fx-background-color: WHITE; -fx-border-color: #fe2e02;" text="afficher" textFill="#fe2e02">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
+      <Button layoutX="311.0" layoutY="412.0" mnemonicParsing="false" onAction="#switchToDelSaison" prefHeight="49.0" prefWidth="286.0" style="-fx-background-color: WHITE; -fx-border-color: #fe2e02;" text="suprimer" textAlignment="CENTER" textFill="#fe2e02">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnpageS11" layoutX="311.0" layoutY="485.0" mnemonicParsing="false" onAction="#switchToStats" prefHeight="49.0" prefWidth="286.0" style="-fx-background-color: WHITE; -fx-border-color: #fe2e02;" text="stats" textAlignment="CENTER" textFill="#fe2e02">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
+      <Button layoutX="841.0" layoutY="47.0" mnemonicParsing="false" onAction="#switchToClassemen" text="retour" />
+   </children>
+</AnchorPane>

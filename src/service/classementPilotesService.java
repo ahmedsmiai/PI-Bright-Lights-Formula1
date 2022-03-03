@@ -5,45 +5,55 @@
  */
 package service;
 
+import com.sun.prism.GraphicsPipeline;
+import entite.Saison;
+import java.util.Date;
 
-
-import entite.classement_pilotes;
-
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import entite.ClassementPilotes;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import utils.Datasource;
+
 /**
  *
- * @author qwiw
+ * @author win10LIGHT
  */
-public class classementPilotesService {  // test // 
-    
-final private Connection conn;   ///////////////////////////////////////////////////////////////////////////added final to connection 
+public class ClassementPilotesService implements IService<ClassementPilotes> {
+
+    private Connection conn;
     private Statement ste;
     private PreparedStatement pst;
     private ResultSet rs;
+    private ResultSet rss;
+    
 
-    public classementPilotesService() {
+    public ClassementPilotesService() {
         conn = Datasource.getInstance().getCnx();
     }
 
-    
-    public void insert(classement_pilotes u) {
-        String req = "insert into user (pilotes_pilote_id,saisons_year,points_total,position) values ('" + u.getPilotes_pilote_id() + "','" + u.getSaisons_year() + "','" + u.getPoints_total() + "','" + u.getPosition() + "')";
+    @Override
+    public void insert(ClassementPilotes u) {
+        String req = "insert into classement_pilotes (pilotes_pilote_id,saisons_year,points_total,position) values ('" + u.getPilotes_pilote_id() + "','" + u.getSaisons_year() + "','" + u.getPoints_total() + "','" + u.getPosition() + "')";
         try {
+    
             ste = conn.createStatement();
             ste.executeUpdate(req);
+            System.out.println("pilote_id ou saison invalide");
 
         } catch (SQLException ex) {
-            Logger.getLogger(classementPilotesService.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ClassementPilotesService.class.getName()).log(Level.SEVERE, null, ex);
+             
         }
     }
 
-    public void insertclassement_pilotesPst(classement_pilotes u) {
-        String req = "insert into user (pilotes_pilote_id,saisons_year,points_total,position) values (?,?,?,?)";
+    public void insertclassemet_pilotePst(ClassementPilotes u) {
+        String req = "insert into classement_pilotes (pilotes_pilote_id,saisons_year,points_total,position) values (?,?,?,?)";
         try {
             pst = conn.prepareStatement(req);
             pst.setInt(1, u.getPilotes_pilote_id());
@@ -53,29 +63,29 @@ final private Connection conn;   ///////////////////////////////////////////////
             pst.executeUpdate();
 
         } catch (SQLException ex) {
-            Logger.getLogger(classementPilotesService.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ClassementPilotesService.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
 
-   
-    public void delete(classement_pilotes u) {
-        String req = "DELETE FROM user WHERE classementP_id=?";
+    @Override
+    public void delete(ClassementPilotes u) {
+        String req = "DELETE FROM classement_pilotes WHERE classementP_id=?";
         try {
             pst = conn.prepareStatement(req);
             pst.setInt(1, u.getClassementP_id());
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(classementPilotesService.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ClassementPilotesService.class.getName()).log(Level.SEVERE, null, ex);
 
         }
     }
 
-   
-    public void update(classement_pilotes u) {
+    @Override
+    public void update(ClassementPilotes u) {
         try {
 
-            String req = "update user set pilotes_pilote_id=?,saisons_year=?,points_total=?, position=? where classementP_id=?";
+            String req = "update classement_pilotes set pilotes_pilote_id=?,saisons_year=?,points_total=?, position=? where classementP_id=?";
 
             pst = conn.prepareStatement(req);
             pst.setInt(1, u.getPilotes_pilote_id());
@@ -85,40 +95,41 @@ final private Connection conn;   ///////////////////////////////////////////////
             pst.setInt(5, u.getClassementP_id());
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(classementPilotesService.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ClassementPilotesService.class.getName()).log(Level.SEVERE, null, ex);
 
         }
     }
 
-    
-    public List<classement_pilotes> read() {
-        String req = "select * from user";
-        List<classement_pilotes> list = new ArrayList<>();
+    @Override
+    public List<ClassementPilotes> read() {
+        String req = "select * from classement_pilotes";
+        List<ClassementPilotes> list = new ArrayList<>();
         try {
             ste = conn.createStatement();
             rs = ste.executeQuery(req);
             while (rs.next()) {
-                list.add(new classement_pilotes(rs.getInt("classementP_id"), rs.getInt("pilotes_pilote_id"), rs.getInt("saisons_year"), rs.getInt("points_total"), rs.getInt("position")));
+                list.add(new ClassementPilotes(rs.getInt("classementP_id"), rs.getInt("pilotes_pilote_id"), rs.getInt("saisons_year"), rs.getInt("points_total"), rs.getInt("position")));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(classementPilotesService.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ClassementPilotesService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list;
     }
-
-  
-    public classement_pilotes readById(int id) {
-        String req = "select * from user where classementP_id="+id;
-        classement_pilotes u = new classement_pilotes();
+    
+    @Override
+    public ClassementPilotes readById(int classementP_id) {
+        String req = "select * from classement_pilotes where classementP_id="+classementP_id;
+        ClassementPilotes u = new ClassementPilotes();
 
         try {
             ste = conn.createStatement();
             rs = ste.executeQuery(req);
             while (rs.next()) {
-                u.setClassementP_id(rs.getInt("classementP_id"));
+                u.setClassementE_id(rs.getInt("classementP_id"));
                 u.setPilotes_pilote_id(rs.getInt("pilotes_pilote_id"));
                 u.setSaisons_year(rs.getInt("saisons_year"));
                 u.setPoints_total(rs.getInt("points_total"));
+           
                 u.setPosition(rs.getInt("position"));
                 
                 
@@ -129,8 +140,9 @@ final private Connection conn;   ///////////////////////////////////////////////
         return u;
     }
 
+  
+    
+
    
 
-
 }
-

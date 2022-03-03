@@ -1,39 +1,45 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//*
+// * To change this license header, choose License Headers in Project Properties.
+// * To change this template file, choose Tools | Templates
+// * and open the template in the editor.
+// */
 package entite;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
+import java.util.Date;
 
 /**
  *
- * @author qwiw
+ * @author win10LIGHT
  */
-public class classement_equipes {
-      private int classementE_id ;
-    private int equipes_equipe_id;//equipes_equipe_id
-    private int saisons_year;//saisons_year
-    private int points_total;//points_total
-    private int position;//position
-   
+public class ClassementEquipes{
+    private int classementE_id;//usid
+    private int equipes_equipe_id;//usrna
+    private int saisons_year;//mai
+    
+    private int points_total ;//pw
+    
+    private int position;//rolid
 
-    public classement_equipes() {
+    public ClassementEquipes() {
     }
 
-    public classement_equipes(int classementE_id, int equipes_equipe_id, int saisons_year, int points_total, int position) {
+    public ClassementEquipes (int classementE_id, int equipes_equipe_id, int saisons_year, int points_total ,  int position) {
         this.classementE_id = classementE_id;
         this.equipes_equipe_id = equipes_equipe_id;
         this.saisons_year = saisons_year;
-        this.points_total = points_total;
+        this.points_total  = points_total ;
+       
         this.position = position;
     }
 
-    public classement_equipes(int equipes_equipe_id, int saisons_year, int points_total, int position) {
+    public ClassementEquipes (int equipes_equipe_id, int saisons_year, int points_total , int position) {
         this.equipes_equipe_id = equipes_equipe_id;
         this.saisons_year = saisons_year;
-        this.points_total = points_total;
+        this.points_total  = points_total ;
+      
         this.position = position;
     }
 
@@ -67,12 +73,16 @@ public class classement_equipes {
     }
 
     public int getPoints_total() {
-        return points_total;
+        return points_total ;
     }
 
-    public void setPoints_total(int points_total) {
-        this.points_total = points_total;
+    public void setPoints_total(int points_total ) {
+        this.points_total  = points_total ;
     }
+
+   
+
+ 
 
     public int getPosition() {
         return position;
@@ -83,7 +93,7 @@ public class classement_equipes {
     }
      @Override
     public String toString() {
-        return "classement_equipes{" + "classementE_id=" + classementE_id + ", equipes_equipe_id=" + equipes_equipe_id + ", saisons_year=" + saisons_year +", points_total=" + points_total +", position=" + position + '}';
+        return "classement_equipes{" + "classementE_id=" + classementE_id + ", equipes_equipe_id=" + equipes_equipe_id + ", saisons_year=" + saisons_year +", points_total =" + points_total  +", position=" + position + '}';
     }
 
     @Override
@@ -97,13 +107,12 @@ public class classement_equipes {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final classement_equipes other = (classement_equipes) obj;
+        final ClassementEquipes other = (ClassementEquipes) obj;
         if (this.classementE_id != other.classementE_id) {
             return false;
         }
         return true;
     }
 
-
-    
+  
 }
