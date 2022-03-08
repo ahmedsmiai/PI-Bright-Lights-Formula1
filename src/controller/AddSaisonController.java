@@ -28,6 +28,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
 /**
@@ -52,43 +53,64 @@ public class AddSaisonController implements Initializable {
     @FXML
     private Button btnAjouter;
 
-    
-     private Stage stage;
- private Scene scene;
- private Parent root;
- 
- 
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-
+    }
 
     @FXML
-    private void switchToSaison(ActionEvent event)  throws IOException {
-          root = FXMLLoader.load(getClass().getResource("/view/Saison22.fxml"));
-  stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-  scene = new Scene(root);
-  stage.setScene(scene);
-  stage.show();
+    private void switchToSaison(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("/view/Saison22.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
     private void onCreate(ActionEvent event) {
-         int year = Integer.parseInt(textfieldYear.getText());
-    
-        LocalDate datDeb = calenderDd.getValue();
-        
-        LocalDate datFin = calenderDf.getValue();
-        
-        Saison s = new Saison(year , datDeb, datFin) ;
 
-       SaisonService ss=new SaisonService();   
-       ss.inserSaisonPst(s);
-        
+        LocalDate datDeb = calenderDd.getValue();
+        LocalDate datFin = calenderDf.getValue();
+        if (textfieldYear.getText().matches("^[0-9]+$") && textfieldYear.getText().length() == 4) {
+            if ( datFin.isAfter(datDeb) ) {
+                int year = Integer.parseInt(textfieldYear.getText());
+
+                Saison s = new Saison(year, datDeb, datFin);
+
+                SaisonService ss = new SaisonService();
+
+                ss.inserSaisonPst(s);
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+
+                alert.setTitle("notification");
+                alert.setHeaderText(null);
+                alert.setContentText("ajout success!");
+                alert.showAndWait();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("date erreur");
+                alert.setHeaderText(null);
+                alert.setContentText("date debut > date fin ");
+                alert.showAndWait();
+            }
+
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("year erreur");
+            alert.setHeaderText(null);
+            alert.setContentText("verifier saison year ");
+            alert.showAndWait();
+        }
+
     }
-    
+
 }

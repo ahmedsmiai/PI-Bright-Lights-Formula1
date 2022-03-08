@@ -69,10 +69,14 @@ public class Saison {
     }
    
 
-//    public String toString2() {
-//        return "Saison{" + "year=" + year + ", date_debut=" + date_debut + ", date_fin=" + date_fin + '}';
-//    }
-//  
+    public String toString2() {
+        return "Saison{" + "year=" + year + ", date_debut=" + date_debut + ", date_fin=" + date_fin + '}';
+    }
+    
+    public String toString3() {
+        return  " "+ year + " "+ date_debut +" "+ date_fin;
+    }
+  
 
     @Override
     public boolean equals(Object obj) {

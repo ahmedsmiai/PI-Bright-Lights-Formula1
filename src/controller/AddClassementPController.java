@@ -5,7 +5,6 @@
  */
 package controller;
 
-
 import entite.Saison;
 import java.sql.Date;
 import java.time.LocalDate;
@@ -33,6 +32,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
 
@@ -60,41 +60,57 @@ public class AddClassementPController implements Initializable {
     @FXML
     private TextField textfieldPiloteid;
 
-    
-             private Stage stage;
- private Scene scene;
- private Parent root;
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-         SaisonService ss=new SaisonService();   
-     
+        SaisonService ss = new SaisonService();
+
         choisYear.getItems().addAll(ss.readjustid());
-    }    
+
+    }
 
     @FXML
     private void onCreate(ActionEvent event) {
-         Saison s  = choisYear.getSelectionModel().getSelectedItem();
-     int year = s.getYear();
-     int piloteid = Integer.parseInt(textfieldPiloteid.getText());
-   int ptst = Integer.parseInt(textfieldPts.getText());
-     
-     ClassementPilotes y = new ClassementPilotes(year , piloteid, ptst) ;
+        int ptst = Integer.parseInt(textfieldPts.getText());
+        if (textfieldPts.getText().matches("^[0-9]+$") && textfieldPts.getText().length() == 4 && ptst>999){
+        Saison s = choisYear.getSelectionModel().getSelectedItem();
+        int year = s.getYear();
+        int piloteid = Integer.parseInt(textfieldPiloteid.getText());
+       
 
-       ClassementPilotesService ss=new ClassementPilotesService();   
-       ss.insertclassemet_pilotePst(y);
+        ClassementPilotes y = new ClassementPilotes(year, piloteid, ptst);
+
+        ClassementPilotesService ss = new ClassementPilotesService();
+        ss.insertclassemet_pilotePst(y);
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("notification");
+        alert.setHeaderText(null);
+        alert.setContentText("ajout success!");
+        alert.showAndWait();
+        }else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("pts erreur");
+                alert.setHeaderText(null);
+                alert.setContentText("points depasse limit (3 char)");
+                alert.showAndWait();
+        }
     }
 
     @FXML
-    private void switchToSaison(ActionEvent event) throws IOException  {
-          root = FXMLLoader.load(getClass().getResource("/view/pilote.fxml"));
-  stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-  scene = new Scene(root);
-  stage.setScene(scene);
-  stage.show();
+    private void switchToSaison(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("/view/pilote.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
-    
+
 }

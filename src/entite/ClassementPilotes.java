@@ -107,14 +107,16 @@ public ClassementPilotes ( int saisons_year,int pilotes_pilote_id , int points_t
         this.position = position;
     }
 
-//     @Override
-//    public String toString() {
-//        return "classement_pilotes{" + "classementP_id=" + classementP_id + ", pilotes_pilote_id =" + pilotes_pilote_id  + ", saisons_year=" + saisons_year +", points_total =" + points_total  +", position=" + position + '}';
-//    }
-      @Override
+         @Override 
     public String toString() {
         return "" + classementP_id + "";
     }
+
+    public String toString2() {
+        return "classement_pilotes{" + "classementP_id=" + classementP_id + ", pilotes_pilote_id =" + pilotes_pilote_id  + ", saisons_year=" + saisons_year +", points_total =" + points_total  +", position=" + position + '}';
+    }
+    
+    
 
     @Override
     public boolean equals(Object obj) {

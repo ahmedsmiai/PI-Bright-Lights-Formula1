@@ -28,6 +28,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
 /**
@@ -86,18 +87,30 @@ public class UpdateSaisonController implements Initializable {
     @FXML
     private void onUpdate(ActionEvent event) {
        // int year = Integer.parseInt(textfieldYear.getText());
+        LocalDate datDeb = calenderDd.getValue();
+        LocalDate datFin = calenderDf.getValue();
+        if(datFin.isAfter(datDeb)){
      Saison s  = yearChoise.getSelectionModel().getSelectedItem();
      int year = s.getYear();
-    
-    
-        LocalDate datDeb = calenderDd.getValue();
-        
-        LocalDate datFin = calenderDf.getValue();
-        
+
         Saison y = new Saison(year , datDeb, datFin) ;
 
        SaisonService ss=new SaisonService();   
        ss.update(y);
+       
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("notification");
+                alert.setHeaderText(null);
+                alert.setContentText("success !");
+                alert.showAndWait();
+       
+          } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("date erreur");
+                alert.setHeaderText(null);
+                alert.setContentText("date debut > date fin ");
+                alert.showAndWait();
+            }
     }
    
 }

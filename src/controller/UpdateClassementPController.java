@@ -33,6 +33,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
 
@@ -52,7 +53,7 @@ public class UpdateClassementPController implements Initializable {
     @FXML
     private Label nom_fichier;
     @FXML
-    private ChoiceBox<ClassementPilotes> yearChoise;
+    private ChoiceBox<ClassementPilotes>yearChoise;
 
     
           private Stage stage;
@@ -74,20 +75,28 @@ public class UpdateClassementPController implements Initializable {
 
     @FXML
     private void onUpdate(ActionEvent event) {
+        int pts = Integer.parseInt(textfieldPts.getText());
         ClassementPilotes s  = yearChoise.getSelectionModel().getSelectedItem();
      int id = s.getClassementP_id();
-    
-    
-        
-        
-       int pts = Integer.parseInt(textfieldPts.getText());
-        
-        ClassementPilotes y = new ClassementPilotes(id , pts) ;
+             ClassementPilotes y = new ClassementPilotes(id , pts) ;
 
        ClassementPilotesService ss=new ClassementPilotesService();   
-       ss.update(y);
-    }
+    if (textfieldPts.getText().matches("^[0-9]+$") && textfieldPts.getText().length() == 4 && pts>999){
 
+       ss.update(y);
+         Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("notification");
+        alert.setHeaderText(null);
+        alert.setContentText("success!");
+        alert.showAndWait();
+    }else {
+         Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("pts erreur");
+                alert.setHeaderText(null);
+                alert.setContentText("points depasse limit (3 char)");
+                alert.showAndWait();
+    }
+    }
     @FXML
     private void switchToSaison(ActionEvent event)throws IOException {
                   root = FXMLLoader.load(getClass().getResource("/view/pilote.fxml"));

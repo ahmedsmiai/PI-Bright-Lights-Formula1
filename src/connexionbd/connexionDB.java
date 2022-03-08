@@ -64,12 +64,16 @@ public class connexionDB {
      // ss.inserSaisonPst(s1);
 //       ss.delete(s2);
    // ss.update(s2);
-   ss.readByYear();
+ //  ss.readByYear();
      
         ClassementPilotesService pp=new ClassementPilotesService();
      // pp.insertclassemet_pilotePst(p1);
     //   pp.delete(p2);
    //  pp.update(p2);
+//     pp.position();
+//  pp.afficher();
+ //pp.position();
+
     
      ClassementEquipesService ee=new ClassementEquipesService();
       //  ee.insertclassemet_equipePst(e1);
@@ -77,15 +81,15 @@ public class connexionDB {
     // ee.update(e1);
       
        
-        for(Saison e:ss.read()){
+//        for(Saison e:ss.read()){
+//           System.out.println(e.toString3());
+//        }
+//        
+        
+         for(ClassementPilotes e:pp.findAll()){
            System.out.println(e.toString());
         }
         
-        
-//         for(ClassementPilotes e:pp.read()){
-//           System.out.println(e.toString());
-//        }
-//        
 //         for(ClassementEquipes e:ee.read()){
 //           System.out.println(e.toString());
 //        }

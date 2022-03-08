@@ -47,6 +47,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import service.ClassementPilotesService;
@@ -85,12 +87,25 @@ public class PiloteController implements Initializable {
     private TableColumn<ClassementPilotes, Integer> colonnesy;
     @FXML
     private TableColumn<ClassementPilotes, Integer> colonnepid;
+    @FXML
+    private TableColumn<ClassementPilotes, Integer> colonnepos;
        public ObservableList<ClassementPilotes> list = FXCollections.observableArrayList();
          private ClassementPilotesService s;
          
     private Stage stage;
  private Scene scene;
  private Parent root;
+    @FXML
+    private RadioButton rbID;
+    @FXML
+    private ToggleGroup g1;
+    @FXML
+    private RadioButton rbS;
+    @FXML
+    private RadioButton rbN;
+    @FXML
+    private RadioButton rbP;
+  
     
     /**
      * Initializes the controller class.
@@ -98,7 +113,10 @@ public class PiloteController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+         ClassementPilotesService cc=new ClassementPilotesService();
               this.s = new ClassementPilotesService();
+          //    cc.findAll();
+             cc.position();
         RefreshTable();
     }    
     
@@ -109,6 +127,7 @@ public class PiloteController implements Initializable {
         colonnesy.setCellValueFactory(new PropertyValueFactory("saisons_year"));
         colonnepid.setCellValueFactory(new PropertyValueFactory("pilotes_pilote_id"));
        colonnepts.setCellValueFactory(new PropertyValueFactory("points_total"));
+       colonnepos.setCellValueFactory(new PropertyValueFactory("position"));
        
         tableRead.setItems(list);
         s.read();
@@ -167,5 +186,65 @@ public class PiloteController implements Initializable {
     @FXML
     private void onStat(ActionEvent event) {
     }
+
+    @FXML
+    private void getTri(ActionEvent event) {
+        
+         if(rbID.isSelected()) {
+                        ObservableList<ClassementPilotes> list=FXCollections.observableArrayList();   
+        list.addAll(s.triID());
+        colonnecpid.setCellValueFactory(new PropertyValueFactory("classementP_id"));
+        colonnesy.setCellValueFactory(new PropertyValueFactory("saisons_year"));
+        colonnepid.setCellValueFactory(new PropertyValueFactory("pilotes_pilote_id"));
+       colonnepts.setCellValueFactory(new PropertyValueFactory("points_total"));
+       colonnepos.setCellValueFactory(new PropertyValueFactory("position"));
+       
+        tableRead.setItems(list);
+        s.triID();
+   
+  }
+    else if(rbS.isSelected()) {
+                   ObservableList<ClassementPilotes> list=FXCollections.observableArrayList();   
+        list.addAll(s.triSaison());
+        colonnecpid.setCellValueFactory(new PropertyValueFactory("classementP_id"));
+        colonnesy.setCellValueFactory(new PropertyValueFactory("saisons_year"));
+        colonnepid.setCellValueFactory(new PropertyValueFactory("pilotes_pilote_id"));
+       colonnepts.setCellValueFactory(new PropertyValueFactory("points_total"));
+       colonnepos.setCellValueFactory(new PropertyValueFactory("position"));
+       
+        tableRead.setItems(list);
+        s.triSaison();
+  
+  }
+    else if(rbN.isSelected()) {
+                   ObservableList<ClassementPilotes> list=FXCollections.observableArrayList();   
+        list.addAll(s.triPilote());
+        colonnecpid.setCellValueFactory(new PropertyValueFactory("classementP_id"));
+        colonnesy.setCellValueFactory(new PropertyValueFactory("saisons_year"));
+        colonnepid.setCellValueFactory(new PropertyValueFactory("pilotes_pilote_id"));
+       colonnepts.setCellValueFactory(new PropertyValueFactory("points_total"));
+       colonnepos.setCellValueFactory(new PropertyValueFactory("position"));
+       
+        tableRead.setItems(list);
+        s.triPilote();
+   
+  }
+    else if(rbP.isSelected()) {
+                   ObservableList<ClassementPilotes> list=FXCollections.observableArrayList();   
+        list.addAll(s.triPos());
+        colonnecpid.setCellValueFactory(new PropertyValueFactory("classementP_id"));
+        colonnesy.setCellValueFactory(new PropertyValueFactory("saisons_year"));
+        colonnepid.setCellValueFactory(new PropertyValueFactory("pilotes_pilote_id"));
+       colonnepts.setCellValueFactory(new PropertyValueFactory("points_total"));
+       colonnepos.setCellValueFactory(new PropertyValueFactory("position"));
+       
+        tableRead.setItems(list);
+        s.triPos();
+  
+  }
+  
+ }
+        
+
     
 }
