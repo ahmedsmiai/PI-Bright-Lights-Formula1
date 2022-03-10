@@ -20,7 +20,8 @@ public class ClassementPilotes{
     private int points_total ;
     
     private int position;
-
+    
+     private String nom;
     public ClassementPilotes() {
     }
 
@@ -30,16 +31,24 @@ public class ClassementPilotes{
         this.saisons_year = saisons_year;
         this.points_total  = points_total ;
        
+        this.position = position;//
+    }
+    public ClassementPilotes (int classementP_id, String nom , int saisons_year, int points_total ,  int position) {
+        this.classementP_id = classementP_id;
+        this.nom  = nom ;
+        this.saisons_year = saisons_year;
+        this.points_total  = points_total ;
+       
         this.position = position;
     }
-
     public ClassementPilotes (int pilotes_pilote_id , int saisons_year, int points_total , int position) {
         this.pilotes_pilote_id  = pilotes_pilote_id ;
         this.saisons_year = saisons_year;
         this.points_total  = points_total ;
       
-        this.position = position;
+        this.position = position;//
     }
+    
      public ClassementPilotes (int classementP_id, int points_total) {
         this.classementP_id  = classementP_id ;
     
@@ -47,7 +56,7 @@ public class ClassementPilotes{
       
   
     }
-    
+     
     
      
      public ClassementPilotes (int pilotes_pilote_id ) {
@@ -58,6 +67,12 @@ public ClassementPilotes ( int saisons_year,int pilotes_pilote_id , int points_t
         this.pilotes_pilote_id  = pilotes_pilote_id ;
         this.saisons_year = saisons_year;
         this.points_total  = points_total ;
+      
+      
+    }
+public ClassementPilotes ( String nom) {
+        this.nom  = nom ;
+        
       
       
     }
@@ -106,16 +121,28 @@ public ClassementPilotes ( int saisons_year,int pilotes_pilote_id , int points_t
     public void setPosition(int position) {
         this.position = position;
     }
+    
+     public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
 
          @Override 
     public String toString() {
-        return "" + classementP_id + "";
+        return "" + nom + "";
     }
 
     public String toString2() {
-        return "classement_pilotes{" + "classementP_id=" + classementP_id + ", pilotes_pilote_id =" + pilotes_pilote_id  + ", saisons_year=" + saisons_year +", points_total =" + points_total  +", position=" + position + '}';
+        return "classement_pilotes{" + "classementP_id=" + classementP_id + ", pilotes_pilote_id =" + nom + ", nomc=" + saisons_year +", points_total =" + points_total  +", position=" + position + '}';
     }
     
+  public String toNom() {
+        return "" + nom + "";
+    }
+
     
 
     @Override

@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 public class Datasource {
     
     private  String url="jdbc:mysql://localhost:3306/formulla1";
-   private  String login="yazzow";
+   private  String login="jesus";
    private  String pwd="root";
    
    private  Connection cnx;

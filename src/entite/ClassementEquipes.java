@@ -22,6 +22,8 @@ public class ClassementEquipes{
     private int points_total ;//pw
     
     private int position;//rolid
+     private String nom;
+    
 
     public ClassementEquipes() {
     }
@@ -29,6 +31,16 @@ public class ClassementEquipes{
     public ClassementEquipes (int classementE_id, int equipes_equipe_id, int saisons_year, int points_total ,  int position) {
         this.classementE_id = classementE_id;
         this.equipes_equipe_id = equipes_equipe_id;
+        this.saisons_year = saisons_year;
+        this.points_total  = points_total ;
+       
+        this.position = position;
+    }
+    
+      public ClassementEquipes (int classementE_id,String nom, int saisons_year, int points_total ,  int position) {
+        this.classementE_id = classementE_id;
+        this.nom  = nom ;
+        
         this.saisons_year = saisons_year;
         this.points_total  = points_total ;
        
@@ -42,6 +54,38 @@ public class ClassementEquipes{
       
         this.position = position;
     }
+      public ClassementEquipes (int equipes_equipe_id, int saisons_year, int points_total ) {
+        this.equipes_equipe_id = equipes_equipe_id;
+        this.saisons_year = saisons_year;
+        this.points_total  = points_total ;
+      
+     
+    }
+    public ClassementEquipes (int classementE_id, int points_total) {
+        this.classementE_id  = classementE_id ;
+    
+        this.points_total  = points_total ;
+      
+    }
+    
+    
+     
+     public ClassementEquipes (int equipes_equipe_id ) {
+        this.equipes_equipe_id  = equipes_equipe_id ;
+
+    }
+     
+       public ClassementEquipes (String nom ) {
+        this.nom  = nom ;
+
+    }
+//public ClassementEquipes ( int saisons_year,int equipes_equipe_id , int points_total ) {
+//        this.equipes_equipe_id  = equipes_equipe_id ;
+//        this.saisons_year = saisons_year;
+//        this.points_total  = points_total ;
+//      
+//      
+//    }
 
     
 
@@ -91,10 +135,35 @@ public class ClassementEquipes{
     public void setPosition(int position) {
         this.position = position;
     }
-     @Override
-    public String toString() {
-        return "classement_equipes{" + "classementE_id=" + classementE_id + ", equipes_equipe_id=" + equipes_equipe_id + ", saisons_year=" + saisons_year +", points_total =" + points_total  +", position=" + position + '}';
+    
+     public String getNom() {
+        return nom;
     }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+//     @Override
+//    public String toString() {
+//        return "classement_equipes{" + "classementE_id=" + classementE_id + ", equipes_equipe_id=" + equipes_equipe_id + ", saisons_year=" + saisons_year +", points_total =" + points_total  +", position=" + position + '}';
+//    }
+    
+    
+    
+    
+            @Override 
+    public String toString() {
+        return "" + nom + "";
+    }
+           
+    public String toString3() {
+        return "" + classementE_id + "";
+    }
+
+    public String toString2() {
+        return "" + classementE_id + " " + nom  + " " + saisons_year +" " + points_total  +" " + position + "";
+    }
+    
 
     @Override
     public boolean equals(Object obj) {

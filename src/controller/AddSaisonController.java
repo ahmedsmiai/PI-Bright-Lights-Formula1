@@ -22,6 +22,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -78,10 +80,24 @@ public class AddSaisonController implements Initializable {
     private void onCreate(ActionEvent event) {
 
         LocalDate datDeb = calenderDd.getValue();
-        LocalDate datFin = calenderDf.getValue();
-        if (textfieldYear.getText().matches("^[0-9]+$") && textfieldYear.getText().length() == 4) {
+        LocalDate datFin = calenderDf.getValue();  
+//       LocalDate today = LocalDate.current;
+//          LocalDate y = LocalDate.;
+
+DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy");  
+   LocalDateTime now = LocalDateTime.now();
+   
+  
+   
+
+  int i = Integer.parseInt(dtf.format(now));
+      int year = Integer.parseInt(textfieldYear.getText());
+     int k= i - year ;
+       
+       
+        if (textfieldYear.getText().matches("^[0-9]+$") && textfieldYear.getText().length() == 4 && k < 2 ) {
             if ( datFin.isAfter(datDeb) ) {
-                int year = Integer.parseInt(textfieldYear.getText());
+             //   int year = Integer.parseInt(textfieldYear.getText());
 
                 Saison s = new Saison(year, datDeb, datFin);
 
@@ -101,7 +117,8 @@ public class AddSaisonController implements Initializable {
                 alert.setHeaderText(null);
                 alert.setContentText("date debut > date fin ");
                 alert.showAndWait();
-            }
+            } 
+            
 
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);

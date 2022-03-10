@@ -71,7 +71,8 @@ public class connexionDB {
     //   pp.delete(p2);
    //  pp.update(p2);
 //     pp.position();
-//  pp.afficher();
+  pp.afficher();
+  pp.score();
  //pp.position();
 
     
@@ -85,10 +86,10 @@ public class connexionDB {
 //           System.out.println(e.toString3());
 //        }
 //        
-        
-         for(ClassementPilotes e:pp.findAll()){
-           System.out.println(e.toString());
-        }
+//        
+//         for(ClassementPilotes e:pp.readbys(2022)){
+//           System.out.println(e.toString2());
+//        }
         
 //         for(ClassementEquipes e:ee.read()){
 //           System.out.println(e.toString());

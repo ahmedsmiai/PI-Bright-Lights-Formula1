@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.control.Alert;
 import utils.Datasource;
 
 /**
@@ -50,6 +51,7 @@ public class SaisonService implements IService<Saison> {
             Date dateFin = Date.valueOf(s.getDate_fin());
             pst.setDate(3,dateFin);
             pst.executeUpdate();
+            
 
         } catch (SQLException ex) {
             Logger.getLogger(SaisonService.class.getName()).log(Level.SEVERE, null, ex);
@@ -57,23 +59,63 @@ public class SaisonService implements IService<Saison> {
 
     }
   
+
 //    @Override
-//    public void delete(Saison t) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    public void delete(Saison s) {
+//        String req = "DELETE FROM saisons WHERE year=?";
+//        try {
+//            pst = conn.prepareStatement(req);
+//            pst.setInt(1, s.getYear());
+//            pst.executeUpdate();
+//        } catch (SQLException ex) {
+//            Logger.getLogger(SaisonService.class.getName()).log(Level.SEVERE, null, ex);
+//
+//        }
 //    }
-    @Override
-    public void delete(Saison s) {
+    
+       @Override
+    public void delete(Saison u) {
+
         String req = "DELETE FROM saisons WHERE year=?";
         try {
+            System.out.println("delete pilote service");
+             ste = conn.createStatement();
+             rs = ste.executeQuery(req);
             pst = conn.prepareStatement(req);
-            pst.setInt(1, s.getYear());
+            pst.setInt(1, u.getYear());
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(SaisonService.class.getName()).log(Level.SEVERE, null, ex);
 
-        }
-    }
-
+        }}
+    
+public int verifD(Saison u ){
+      int x=0,y=0,z=0;
+     
+        String c1 = "select count(*) as count from classement_pilotes where saisons_year ="+u.getYear();
+        String c2 = "select count(*) as count from classement_equipes where saisons_year ="+u.getYear();
+        String c3 = "select count(*) as count from courses where saison_year ="+u.getYear(); 
+         try {
+            
+             ste = conn.createStatement();
+             rs = ste.executeQuery(c1);
+              while (rs.next()) {
+                x = rs.getInt("count");
+            }
+               ste = conn.createStatement();
+              rs = ste.executeQuery(c2);
+               while (rs.next()) {
+                y = rs.getInt("count");
+            }
+               ste = conn.createStatement();
+               rs = ste.executeQuery(c3);
+                while (rs.next()) {
+                z = rs.getInt("count");
+            }
+     } catch (SQLException ex) {
+            Logger.getLogger(SaisonService.class.getName()).log(Level.SEVERE, null, ex);
+        }return x+y+z;
+}
     @Override
     public void update(Saison s) {
       //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

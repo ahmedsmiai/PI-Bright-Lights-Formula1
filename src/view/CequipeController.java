@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
+package view;
 
-import entite.ClassementPilotes;
+import com.itextpdf.text.DocumentException;
+import entite.ClassementEquipes;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -51,30 +52,31 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import service.ClassementPilotesService;
+import service.ClassementEquipesService;
 import entite.Membre;
 import java.awt.Desktop;
 import java.io.File;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.util.Callback;
-import view.StatEvenetController;
 
 /**
  * FXML Controller class
  *
  * @author qwiw
  */
-public class PiloteController implements Initializable {
+public class CequipeController implements Initializable {
 
     @FXML
     private AnchorPane listedesComptes;
     @FXML
-    private TableView<ClassementPilotes> tableRead;
-//    private TableColumn<ClassementPilotes, Integer> colonneYear;
-//    private TableColumn<ClassementPilotes, Integer> colonneDatedeb;
-//    private TableColumn<ClassementPilotes, Integer> colonneDatefin;
+    private TableView<ClassementEquipes> tableRead;
+//    private TableColumn<ClassementEquipes, Integer> colonneYear;
+//    private TableColumn<ClassementEquipes, Integer> colonneDatedeb;
+//    private TableColumn<ClassementEquipes, Integer> colonneDatefin;
     @FXML
     private Button btnCreate;
     @FXML
@@ -87,17 +89,17 @@ public class PiloteController implements Initializable {
     private Button btnExcel1;
 
     @FXML
-    private TableColumn<ClassementPilotes, Integer> colonnepts;
+    private TableColumn<ClassementEquipes, Integer> colonnepts;
     @FXML
-    private TableColumn<ClassementPilotes, Integer> colonnecpid;
+    private TableColumn<ClassementEquipes, Integer> colonnecpid;
     @FXML
-    private TableColumn<ClassementPilotes, Integer> colonnesy;
+    private TableColumn<ClassementEquipes, Integer> colonnesy;
     @FXML
-    private TableColumn<ClassementPilotes, String> colonnepid;//// nom
+    private TableColumn<ClassementEquipes, String> colonnepid;//// nom
     @FXML
-    private TableColumn<ClassementPilotes, Integer> colonnepos;
-    public ObservableList<ClassementPilotes> list = FXCollections.observableArrayList();
-    private ClassementPilotesService s;
+    private TableColumn<ClassementEquipes, Integer> colonnepos;
+    public ObservableList<ClassementEquipes> list = FXCollections.observableArrayList();
+    private ClassementEquipesService s;
 
     private Stage stage;
     private Scene scene;
@@ -112,27 +114,24 @@ public class PiloteController implements Initializable {
     private RadioButton rbN;
     @FXML
     private RadioButton rbP;
-ClassementPilotesService cc;
+ClassementEquipesService cc;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        ClassementPilotesService cc = new ClassementPilotesService();
-        this.s = new ClassementPilotesService();
+        ClassementEquipesService cc = new ClassementEquipesService();
+        this.s = new ClassementEquipesService();
         //    cc.findAll();
         cc.position();
-  
-        cc.score();
-              cc.afficher();
         RefreshTable();
     }
 
     private void RefreshTable() {
-        ObservableList<ClassementPilotes> list = FXCollections.observableArrayList();
+        ObservableList<ClassementEquipes> list = FXCollections.observableArrayList();
         list.addAll(s.read2());
-        colonnecpid.setCellValueFactory(new PropertyValueFactory("classementP_id"));
+        colonnecpid.setCellValueFactory(new PropertyValueFactory("classementE_id"));
         colonnesy.setCellValueFactory(new PropertyValueFactory("saisons_year"));
           colonnepid.setCellValueFactory(new PropertyValueFactory("nom"));
         
@@ -141,7 +140,7 @@ ClassementPilotesService cc;
         
         
                 colonnepts.setCellValueFactory(new PropertyValueFactory("points_total"));
-      //  colonnepts.setCellValueFactory(new PropertyValueFactory("pilotes_pilote_id"));
+      //  colonnepts.setCellValueFactory(new PropertyValueFactory("equipes_equipe_id"));
         colonnepos.setCellValueFactory(new PropertyValueFactory("position"));
 
         tableRead.setItems(list);
@@ -150,7 +149,7 @@ ClassementPilotesService cc;
 
     @FXML
     private void onCreate(ActionEvent event) throws IOException {
-        final FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/AddClassement.fxml"));
+        final FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/addclassementE.fxml"));
         final Node node;
         node = fxmlLoader.load();
         AnchorPane pane = new AnchorPane(node);
@@ -166,21 +165,30 @@ ClassementPilotesService cc;
         listedesComptes.getChildren().setAll(pane);
     }
 
- 
+    @FXML
+    private void onExcel(ActionEvent event){
+          ClassementEquipesService pp = new ClassementEquipesService();
+        try {
+            pp.GeneratePdf();
+        } catch (DocumentException ex) {
+            Logger.getLogger(CequipeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+  
+    }
 
     @FXML
     private void onDelete(ActionEvent event) {
-        System.out.println("delete pilote controller");
+        System.out.println("delete equipe controller");
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation de suppresssion");
         alert.setContentText("Voulez-vous vraiment supprimer ce compte ?");
         Optional<ButtonType> action = alert.showAndWait();
         if (action.get() == ButtonType.OK) {
 
-            ClassementPilotes p = tableRead.getSelectionModel().getSelectedItem();
-            int id = p.getClassementP_id();
-            ClassementPilotes y = new ClassementPilotes(id);
-            ClassementPilotesService us = new ClassementPilotesService();
+            ClassementEquipes p = tableRead.getSelectionModel().getSelectedItem();
+            int id = p.getClassementE_id();
+            ClassementEquipes y = new ClassementEquipes(id);
+            ClassementEquipesService us = new ClassementEquipesService();
 
             us.delete(us.readById(id));
             RefreshTable();
@@ -198,8 +206,8 @@ ClassementPilotesService cc;
 
     @FXML
     private void onStat(ActionEvent event) {
-         FXMLLoader loader = new FXMLLoader ();
-                           loader.setLocation(getClass().getResource("../view/StatEvenet.fxml"));
+                 FXMLLoader loader = new FXMLLoader ();
+                           loader.setLocation(getClass().getResource("../view/statE.fxml"));
                             try {
                                 loader.load();
                                 
@@ -218,16 +226,17 @@ ClassementPilotesService cc;
             primaryStage.show();
     }
 
+    
     @FXML
     private void getTri(ActionEvent event) {
 
         if (rbID.isSelected()) {
-            ObservableList<ClassementPilotes> list = FXCollections.observableArrayList();
+            ObservableList<ClassementEquipes> list = FXCollections.observableArrayList();
             list.addAll(s.triID());
-            colonnecpid.setCellValueFactory(new PropertyValueFactory("classementP_id"));
+            colonnecpid.setCellValueFactory(new PropertyValueFactory("classementE_id"));
             colonnesy.setCellValueFactory(new PropertyValueFactory("saisons_year"));
-           // colonnepid.setCellValueFactory(new PropertyValueFactory("pilotes_pilote_id"));
-            colonnepid.setCellValueFactory(new PropertyValueFactory("nom"));
+         //   colonnepid.setCellValueFactory(new PropertyValueFactory("equipes_equipe_id"));
+          colonnepid.setCellValueFactory(new PropertyValueFactory("nom"));
             colonnepts.setCellValueFactory(new PropertyValueFactory("points_total"));
             colonnepos.setCellValueFactory(new PropertyValueFactory("position"));
 
@@ -235,12 +244,12 @@ ClassementPilotesService cc;
             s.triID();
 
         } else if (rbS.isSelected()) {
-            ObservableList<ClassementPilotes> list = FXCollections.observableArrayList();
+            ObservableList<ClassementEquipes> list = FXCollections.observableArrayList();
             list.addAll(s.triSaison());
-            colonnecpid.setCellValueFactory(new PropertyValueFactory("classementP_id"));
+            colonnecpid.setCellValueFactory(new PropertyValueFactory("classementE_id"));
             colonnesy.setCellValueFactory(new PropertyValueFactory("saisons_year"));
-           // colonnepid.setCellValueFactory(new PropertyValueFactory("pilotes_pilote_id"));
-            colonnepid.setCellValueFactory(new PropertyValueFactory("nom"));
+        //    colonnepid.setCellValueFactory(new PropertyValueFactory("equipes_equipe_id"));
+         colonnepid.setCellValueFactory(new PropertyValueFactory("nom"));
             colonnepts.setCellValueFactory(new PropertyValueFactory("points_total"));
             colonnepos.setCellValueFactory(new PropertyValueFactory("position"));
 
@@ -248,12 +257,12 @@ ClassementPilotesService cc;
             s.triSaison();
 
         } else if (rbN.isSelected()) {
-            ObservableList<ClassementPilotes> list = FXCollections.observableArrayList();
+            ObservableList<ClassementEquipes> list = FXCollections.observableArrayList();
             list.addAll(s.triPilote());
-            colonnecpid.setCellValueFactory(new PropertyValueFactory("classementP_id"));
+            colonnecpid.setCellValueFactory(new PropertyValueFactory("classementE_id"));
             colonnesy.setCellValueFactory(new PropertyValueFactory("saisons_year"));
-          //  colonnepid.setCellValueFactory(new PropertyValueFactory("pilotes_pilote_id"));
-           colonnepid.setCellValueFactory(new PropertyValueFactory("nom"));
+        //    colonnepid.setCellValueFactory(new PropertyValueFactory("equipes_equipe_id"));
+         colonnepid.setCellValueFactory(new PropertyValueFactory("nom"));
             colonnepts.setCellValueFactory(new PropertyValueFactory("points_total"));
             colonnepos.setCellValueFactory(new PropertyValueFactory("position"));
 
@@ -261,12 +270,12 @@ ClassementPilotesService cc;
             s.triPilote();
 
         } else if (rbP.isSelected()) {
-            ObservableList<ClassementPilotes> list = FXCollections.observableArrayList();
+            ObservableList<ClassementEquipes> list = FXCollections.observableArrayList();
             list.addAll(s.triPos());
-            colonnecpid.setCellValueFactory(new PropertyValueFactory("classementP_id"));
+            colonnecpid.setCellValueFactory(new PropertyValueFactory("classementE_id"));
             colonnesy.setCellValueFactory(new PropertyValueFactory("saisons_year"));
-       //     colonnepid.setCellValueFactory(new PropertyValueFactory("pilotes_pilote_id"));
-        colonnepid.setCellValueFactory(new PropertyValueFactory("nom"));
+           // colonnepid.setCellValueFactory(new PropertyValueFactory("equipes_equipe_id"));
+            colonnepid.setCellValueFactory(new PropertyValueFactory("nom"));
             colonnepts.setCellValueFactory(new PropertyValueFactory("points_total"));
             colonnepos.setCellValueFactory(new PropertyValueFactory("position"));
 
@@ -275,10 +284,6 @@ ClassementPilotesService cc;
 
         }
 
-    }
-
-    @FXML
-    private void onExcel(ActionEvent event) {
     }
 
 }

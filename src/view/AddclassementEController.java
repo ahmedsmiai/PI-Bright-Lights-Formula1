@@ -3,17 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
+package view;
+
 
 import entite.Saison;
 import java.sql.Date;
 import java.time.LocalDate;
 import service.SaisonService;
 import java.io.IOException;
-import entite.ClassementPilotes;
+import entite.ClassementEquipes;
 import java.sql.Date;
 import java.time.LocalDate;
-import service.ClassementPilotesService;
+import service.ClassementEquipesService;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -34,6 +35,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 
 /**
@@ -41,7 +43,7 @@ import javafx.stage.Stage;
  *
  * @author qwiw
  */
-public class AddClassementPController implements Initializable {
+public class AddclassementEController implements Initializable {
 
     @FXML
     private AnchorPane ajout;
@@ -63,7 +65,7 @@ public class AddClassementPController implements Initializable {
     private Scene scene;
     private Parent root;
     @FXML
-    private ChoiceBox<ClassementPilotes> choiceP;
+    private ComboBox<ClassementEquipes> choiceP;
 
     /**
      * Initializes the controller class.
@@ -72,7 +74,7 @@ public class AddClassementPController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         SaisonService ss = new SaisonService();
- ClassementPilotesService pp = new ClassementPilotesService() ;
+ ClassementEquipesService pp = new ClassementEquipesService() ;
         choisYear.getItems().addAll(ss.readjustid());
         choiceP.getItems().addAll(pp.readjustnom());
 
@@ -83,25 +85,25 @@ public class AddClassementPController implements Initializable {
         
         
        //  ClassementPilotesService pp = new ClassementPilotesService() ;
-       ClassementPilotesService ss = new ClassementPilotesService();
+       ClassementEquipesService ss = new ClassementEquipesService();
      
         int ptst = Integer.parseInt(textfieldPts.getText());
         
          Saison s = choisYear.getSelectionModel().getSelectedItem();
           int year = s.getYear();
          
-         ClassementPilotes p = ss.convert( choiceP.getSelectionModel().getSelectedItem().getNom());
-         int piloteid = p.getPilotes_pilote_id();
+         ClassementEquipes p = ss.convert( choiceP.getSelectionModel().getSelectedItem().getNom());
+         int piloteid = p.getEquipes_equipe_id();
      
       
-        ClassementPilotes y = new ClassementPilotes(year, piloteid, ptst);
+        ClassementEquipes y = new ClassementEquipes(year, piloteid, ptst);
       //  ClassementPilotesService ss = new ClassementPilotesService();
         int v ;
         v = ss.verifajout(piloteid, year);
         if (v==0) {
         if (textfieldPts.getText().matches("^[0-9]+$") && textfieldPts.getText().length() < 4 && ptst<1000 ){
        
-        ss.insertclassemet_pilotePst(y);  /////////ajout
+        ss.insertclassemet_equipePst(y);  /////////ajout
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("notification");
@@ -127,7 +129,7 @@ public class AddClassementPController implements Initializable {
 
     @FXML
     private void switchToSaison(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("/view/Cpilote.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/view/Cequipe.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

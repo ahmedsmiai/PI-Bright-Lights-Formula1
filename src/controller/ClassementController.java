@@ -51,7 +51,7 @@ public class ClassementController implements Initializable {
     @FXML
     private void switchToClassementPilotes(ActionEvent event)  {
  try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/pilote.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Cpilote.fxml"));
             Parent root = loader.load();
             
             pilotes.getScene().setRoot(root);
@@ -72,7 +72,7 @@ public class ClassementController implements Initializable {
 
     @FXML
     private void switchToClassementEquipes(ActionEvent event)  throws IOException{
-         root = FXMLLoader.load(getClass().getResource("/view/ClassementE22.fxml"));
+         root = FXMLLoader.load(getClass().getResource("/view/Cequipe.fxml"));
   stage = (Stage)((Node)event.getSource()).getScene().getWindow();
   scene = new Scene(root);
   stage.setScene(scene);

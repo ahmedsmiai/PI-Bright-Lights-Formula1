@@ -99,7 +99,7 @@ public class UpdateClassementPController implements Initializable {
     }
     @FXML
     private void switchToSaison(ActionEvent event)throws IOException {
-                  root = FXMLLoader.load(getClass().getResource("/view/pilote.fxml"));
+                  root = FXMLLoader.load(getClass().getResource("/view/Cpilote.fxml"));
   stage = (Stage)((Node)event.getSource()).getScene().getWindow();
   scene = new Scene(root);
   stage.setScene(scene);
