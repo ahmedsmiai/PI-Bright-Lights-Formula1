@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane onMouseClicked="#clearselected" id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="1200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="Controller.VitrineParticipationController">
+   <stylesheets>
+        <URL value="@vrs.css" />
+    </stylesheets>
+    <children>
+      <TableView fx:id="table" layoutX="258.0" layoutY="98.0" prefHeight="498.0" prefWidth="930.0">
+        <columns>
+          <TableColumn fx:id="c_course" prefWidth="130.0" text="Course" />
+          <TableColumn fx:id="c_pilote" prefWidth="110.0" text="Pilote" />
+            <TableColumn fx:id="c_equipe" prefWidth="110.0" text="Equipe" />
+            <TableColumn fx:id="c_num" prefWidth="60.0" text="Num" />
+            <TableColumn fx:id="c_voiture" prefWidth="100.0" text="Voiture" />
+            <TableColumn fx:id="c_q1" text="Q1" />
+            <TableColumn fx:id="c_q2" text="Q2" />
+            <TableColumn fx:id="c_q3" text="Q3" />
+            <TableColumn fx:id="c_grid" prefWidth="75.0" text="Grid" />
+            <TableColumn fx:id="c_position" prefWidth="75.0" text="Position" />
+            <TableColumn fx:id="c_points" prefWidth="75.0" text="Points" />
+        </columns>
+      </TableView>
+      <ListView fx:id="list_saison" onMouseClicked="#handleListViewActionA" layoutX="40.0" layoutY="100.0" prefHeight="67.0" prefWidth="185.0" />
+      <ListView fx:id="list_course" onMouseClicked="#handleListViewActionA" layoutX="40.0" layoutY="220.0" prefHeight="67.0" prefWidth="185.0" />
+      <ListView fx:id="list_pilote" onMouseClicked="#handleListViewActionA" layoutX="40.0" layoutY="340.0" prefHeight="67.0" prefWidth="185.0" />
+      <ListView fx:id="list_equipe" onMouseClicked="#handleListViewActionA" layoutX="40.0" layoutY="460.0" prefHeight="67.0" prefWidth="185.0" />
+      <Label layoutX="43.0" layoutY="75.0" text="Siasons">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="43.0" layoutY="195.0" text="Courses" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="43.0" layoutY="315.0" text="Pilotes" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="43.0" layoutY="435.0" text="Equipes">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

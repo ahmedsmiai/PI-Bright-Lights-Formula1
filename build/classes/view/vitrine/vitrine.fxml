@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="vitrine" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: white;" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.vitrine.VitrineController">
+   <children>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="75.0" prefWidth="1200.0">
+         <children>
+            <Pane layoutY="-68.0" prefHeight="37.0" prefWidth="1200.0" style="-fx-background-color: #FE2E02;" AnchorPane.bottomAnchor="38.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <ImageView fitHeight="20.0" fitWidth="24.0" layoutX="1159.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/check.png" />
+                     </image>
+                  </ImageView>
+                  <HBox fx:id="menu" prefHeight="37.0" prefWidth="971.0" styleClass="VmenuItem" stylesheets="@Style.css">
+                     <children>
+                        <JFXButton alignment="BASELINE_LEFT" prefHeight="37.0" prefWidth="104.0" styleClass="VmenuItem" stylesheets="@Style.css" text="Accueil" textAlignment="CENTER" textFill="#fcf7f7">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <graphic>
+                              <ImageView fitHeight="18.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/home.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton alignment="BASELINE_LEFT" onAction="#OpenEquipe" prefHeight="37.0" prefWidth="99.0" styleClass="VmenuItem" stylesheets="@Style.css" text="Equipe" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="17.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/team.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton alignment="BASELINE_LEFT" onAction="#OpenCourse" prefHeight="37.0" prefWidth="116.0" styleClass="VmenuItem" stylesheets="@Style.css" text="Course" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/course.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton alignment="BASELINE_LEFT" onAction="#OpenCircuit" prefHeight="37.0" prefWidth="95.0" styleClass="VmenuItem" stylesheets="@Style.css" text="Circuit" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="17.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/circuit.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton alignment="BASELINE_LEFT" prefHeight="37.0" prefWidth="141.0" styleClass="VmenuItem" stylesheets="@Style.css" text="Classement" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/classement.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton alignment="BASELINE_LEFT" onAction="#OpenMembre" prefHeight="37.0" prefWidth="141.0" styleClass="VmenuItem" stylesheets="@Style.css" text="Membres" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/defe.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton alignment="BASELINE_LEFT" onAction="#OpenRes" prefHeight="37.0" prefWidth="141.0" styleClass="VmenuItem" stylesheets="@Style.css" text="Resultats" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/defe.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton alignment="BASELINE_LEFT" onAction="#OpenPart" prefHeight="37.0" prefWidth="141.0" styleClass="VmenuItem" stylesheets="@Style.css" text="Participation" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/defe.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+               </children>
+            </Pane>
+            <HBox layoutX="973.0" layoutY="38.0" prefHeight="37.0" prefWidth="227.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="973.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="38.0">
+               <children>
+                  <JFXButton fx:id="inscrire" alignment="BASELINE_LEFT" onAction="#inscrire" prefHeight="37.0" prefWidth="115.0" styleClass="menuItem" text="register">
+                     <graphic>
+                        <ImageView fitHeight="17.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/user.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="login" alignment="BASELINE_LEFT" onAction="#connexion" prefHeight="37.0" prefWidth="149.0" styleClass="menuItem" text="Login">
+                     <graphic>
+                        <ImageView fitHeight="17.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/user.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </HBox>
+            <Button fx:id="btnclose" layoutX="973.0" layoutY="42.0" mnemonicParsing="false" onAction="#Close" prefHeight="31.0" prefWidth="227.0" style="-fx-background-color: #FFFFFFFF;" text="Mon compte" />
+            <Button fx:id="btnc" layoutX="972.0" layoutY="38.0" mnemonicParsing="false" onAction="#MonCompte" prefHeight="37.0" prefWidth="227.0" style="-fx-background-color: #FFFFFFFF;" text="Mon Compte" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="body" layoutY="75.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="1200.0" styleClass="menuItem" stylesheets="@Style.css">
+         <children>
+            <AnchorPane layoutY="606.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="1200.0" style="-fx-background-color: #FE2E02;">
+               <children>
+                  <Text fill="#f8f5f5" layoutX="504.0" layoutY="16.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Copyright © 2022 bright lights" textAlignment="CENTER">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="compte" layoutX="973.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="606.0" prefWidth="227.0" style="-fx-background-color: #FE2E02;">
+               <children>
+                  <Circle fx:id="circle" fill="#1f93ff00" layoutX="111.0" layoutY="108.0" radius="83.0" stroke="#f8f8f8" strokeType="INSIDE" strokeWidth="5.0" />
+                  <VBox layoutX="27.0" layoutY="251.0" prefHeight="316.0" prefWidth="176.0">
+                     <children>
+                        <Label fx:id="nom" prefHeight="67.0" prefWidth="178.0" text="Hamza nechi" textFill="#fffefe">
+                           <font>
+                              <Font name="Berlin Sans FB Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="email" prefHeight="67.0" prefWidth="178.0" text="hamzanechi@gmail.com" textFill="#fffefe">
+                           <font>
+                              <Font name="Berlin Sans FB Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="tel" prefHeight="67.0" prefWidth="178.0" text="52907678" textFill="#fffefe">
+                           <font>
+                              <Font name="Berlin Sans FB Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Button mnemonicParsing="false" onAction="#ChangerMotdePasse" prefHeight="52.0" prefWidth="181.0" style="-fx-background-color: #FE2E02; -fx-border-color: #FFFFFFFF;" text="Gérer profile" textFill="WHITE" />
+                        <Label />
+                        <Button mnemonicParsing="false" onAction="#onDeconnexion" prefHeight="54.0" prefWidth="176.0" style="-fx-background-color: #FE2E02; -fx-border-color: #FFFFFFFF;" text="Se déconnecter" textFill="WHITE" />
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </children></AnchorPane>
+   </children>
+</AnchorPane>

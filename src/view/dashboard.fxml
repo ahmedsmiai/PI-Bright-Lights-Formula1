@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="dashboard" prefHeight="700.0" prefWidth="1200.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardController">
+   <children>
+      <BorderPane fx:id="BorderPane" layoutX="156.0" layoutY="112.0" prefHeight="700.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <AnchorPane prefHeight="75.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane layoutY="-68.0" prefHeight="37.0" prefWidth="1200.0" style="-fx-background-color: #FE2E02;" AnchorPane.bottomAnchor="38.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <ImageView fitHeight="18.0" fitWidth="15.0" layoutX="1159.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/check.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <HBox layoutX="269.0" layoutY="38.0" prefHeight="59.0" prefWidth="931.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="269.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="38.0">
+                     <children>
+                        <JFXButton alignment="BASELINE_LEFT" prefHeight="37.0" prefWidth="129.0" styleClass="menuItem" text="Dashboard" textAlignment="CENTER">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <graphic>
+                              <ImageView fitHeight="18.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/home_black.png" />
+                                 </image></ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton alignment="BASELINE_LEFT" prefHeight="37.0" prefWidth="121.0" styleClass="menuItem" text="Saisons">
+                           <graphic>
+                              <ImageView fitHeight="17.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/saison.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton alignment="BASELINE_LEFT" onAction="#OpenEquipe" prefHeight="37.0" prefWidth="120.0" styleClass="menuItem" text="Equipes">
+                           <graphic>
+                              <ImageView fitHeight="17.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/team_black.png" />
+                                 </image></ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton alignment="BASELINE_LEFT" onAction="#OpenCourse" prefHeight="37.0" prefWidth="129.0" styleClass="menuItem" text="Courses">
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/course_black.png" />
+                                 </image></ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton alignment="BASELINE_LEFT" onAction="#OpenCircuit" prefHeight="37.0" prefWidth="125.0" styleClass="menuItem" text="Circuits">
+                           <graphic>
+                              <ImageView fitHeight="17.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/circuit_black.png" />
+                                 </image></ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton alignment="BASELINE_LEFT" prefHeight="37.0" prefWidth="141.0" styleClass="menuItem" text="Classements">
+                           <graphic>
+                              <ImageView fitHeight="16.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/classement_black.png" />
+                                 </image></ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="logout" alignment="BASELINE_LEFT" onAction="#onLogOut" prefHeight="37.0" prefWidth="164.0" styleClass="menuItem" text="Se déconnecter">
+                           <graphic>
+                              <ImageView fitHeight="17.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/user.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+         </top>
+         <left>
+            <AnchorPane fx:id="slider" prefHeight="651.0" prefWidth="270.0" style="-fx-background-color: #FE2E02;" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox layoutX="60.0" layoutY="165.0" prefHeight="460.0" prefWidth="270.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="165.0">
+                     <children>
+                        <JFXButton alignment="BASELINE_LEFT" prefHeight="67.0" prefWidth="270.0" styleClass="sidebarItem" text=" Dashboard" textFill="#f8f3f3">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/home.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton alignment="BASELINE_LEFT" onAction="#OpenComptes" prefHeight="64.0" prefWidth="270.0" styleClass="sidebarItem" text="Comptes" textFill="#f8f3f3">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/team.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton alignment="BASELINE_LEFT" onAction="#OpenMembre" prefHeight="63.0" prefWidth="270.0" styleClass="sidebarItem" text="Membres" textFill="#f8f3f3">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/defe.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton alignment="BASELINE_LEFT" onAction="#OpenParticipation" prefHeight="63.0" prefWidth="270.0" styleClass="sidebarItem" text="Participations" textFill="#f8f3f3">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/part.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton alignment="BASELINE_LEFT" onAction="#OpenQualifying" prefHeight="63.0" prefWidth="270.0" styleClass="sidebarItem" text="Qualifications" textFill="#f8f3f3">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/n.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton alignment="BASELINE_LEFT" onAction="#OpenTicket" prefHeight="63.0" prefWidth="270.0" styleClass="sidebarItem" text="Tickets" textFill="#f8f3f3">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/ticket.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <Label prefHeight="23.0" prefWidth="50.0" />
+                        <JFXButton fx:id="cpt" alignment="BASELINE_LEFT" onAction="#openProfil" prefHeight="63.0" prefWidth="270.0" styleClass="sidebarItem" text="Hamza" textFill="#f8f3f3">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                           <graphic>
+                              <Circle fx:id="circle" fill="#1f93ff00" onMouseClicked="#openProfil" radius="19.0" stroke="WHITE" strokeType="INSIDE" />
+                           </graphic>
+                        </JFXButton>
+                     </children>
+                  </VBox>
+                  <ImageView fitHeight="65.0" fitWidth="233.0" layoutX="19.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/f1white.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </left>
+         <center>
+            <AnchorPane fx:id="body" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="BOTTOM_RIGHT">
+               <children>
+                  <HBox fx:id="compte" layoutX="66.0" layoutY="466.0" onMouseReleased="#openProfil" prefHeight="63.0" prefWidth="244.0" styleClass="sidebarItem" stylesheets="@Style.css" />
+               </children></AnchorPane>
+         </center>
+         <bottom>
+            <AnchorPane prefHeight="0.0" prefWidth="1200.0" BorderPane.alignment="CENTER" />
+         </bottom>
+         <right>
+            <AnchorPane prefHeight="200.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
+         </right>
+      </BorderPane>
+   </children>
+</AnchorPane>

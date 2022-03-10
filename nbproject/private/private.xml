@@ -4,12 +4,17 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/nechi/Desktop/ProjetF1/FormulaOne/src/service/IService.java</file>
-            <file>file:/C:/Users/nechi/Desktop/ProjetF1/FormulaOne/src/entite/Pilote.java</file>
-            <file>file:/C:/Users/nechi/Desktop/ProjetF1/FormulaOne/src/service/MembreService.java</file>
-            <file>file:/C:/Users/nechi/Desktop/ProjetF1/FormulaOne/src/service/PiloteService.java</file>
-            <file>file:/C:/Users/nechi/Desktop/ProjetF1/FormulaOne/src/entite/Membre.java</file>
-            <file>file:/C:/Users/nechi/Desktop/ProjetF1/FormulaOne/src/entite/Equipe.java</file>
-            <file>file:/C:/Users/nechi/Desktop/ProjetF1/FormulaOne/src/service/EquipeService.java</file>
+            <file>file:/C:/Users/nechi/Desktop/ProjetF1/FormulaOne/src/controller/UpdateUserController.java</file>
+            <file>file:/C:/Users/nechi/Desktop/ProjetF1/FormulaOne/src/controller/vitrine/InscriptionController.java</file>
+            <file>file:/C:/Users/nechi/Desktop/ProjetF1/FormulaOne/src/controller/AjouterEquipeController.java</file>
+            <file>file:/C:/Users/nechi/Desktop/ProjetF1/FormulaOne/src/service/UserService.java</file>
+            <file>file:/C:/Users/nechi/Desktop/ProjetF1/FormulaOne/src/controller/AcceuilController.java</file>
+            <file>file:/C:/Users/nechi/Desktop/ProjetF1/FormulaOne/src/controller/ComptesController.java</file>
+            <file>file:/C:/Users/nechi/Desktop/ProjetF1/FormulaOne/src/controller/ProfilController.java</file>
+            <file>file:/C:/Users/nechi/Desktop/ProjetF1/FormulaOne/src/controller/AddUserController.java</file>
+            <file>file:/C:/Users/nechi/Desktop/ProjetF1/FormulaOne/src/controller/vitrine/VitrineController.java</file>
+            <file>file:/C:/Users/nechi/Desktop/ProjetF1/FormulaOne/src/controller/vitrine/LoginController.java</file>
+            <file>file:/C:/Users/nechi/Desktop/ProjetF1/FormulaOne/src/controller/DashboardController.java</file>
             <file>file:/C:/Users/nechi/Desktop/ProjetF1/FormulaOne/src/formulaone/FormulaOne.java</file>
         </group>
     </open-files>

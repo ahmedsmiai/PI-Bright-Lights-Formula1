@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="930.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AjouterMembreController">
+   <children>
+      <Label layoutX="345.0" layoutY="45.0" text="Ajouter Membre" textAlignment="CENTER">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="33.0" />
+         </font>
+      </Label>
+      <Label layoutX="57.0" layoutY="158.0" text="Nom :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="59.0" layoutY="254.0" text="Role :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="55.0" layoutY="358.0" text="Nationalité :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="522.0" layoutY="158.0" text=" Naissance :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="528.0" layoutY="254.0" text="Equipe :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="LabNum" layoutX="533.0" layoutY="360.0" text="Numero :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nom" layoutX="161.0" layoutY="160.0" onKeyReleased="#VerifNom" prefHeight="31.0" prefWidth="225.0" />
+      <TextField fx:id="nat" layoutX="164.0" layoutY="358.0" onKeyReleased="#VerifNat" prefHeight="31.0" prefWidth="225.0" />
+      <ComboBox fx:id="ListRole" layoutX="162.0" layoutY="252.0" onAction="#ShowNumero" prefHeight="31.0" prefWidth="225.0" promptText="Choisir le role du membre" style="-fx-background-color: black;" />
+      <ComboBox fx:id="equipe" layoutX="643.0" layoutY="252.0" onAction="#VerifEquipe" prefHeight="31.0" prefWidth="225.0" promptText="Choisir l'équipe" style="-fx-background-color: black;" />
+      <TextField fx:id="TextNum" layoutX="642.0" layoutY="358.0" onKeyReleased="#VerifNum" prefHeight="31.0" prefWidth="225.0" />
+      <Button fx:id="add" layoutX="409.0" layoutY="515.0" mnemonicParsing="false" onAction="#AjouterMembre" prefHeight="49.0" prefWidth="125.0" style="-fx-background-color: #FFFFFFFF; -fx-border-color: #FE2E02;" text="Ajouter" textFill="#fe2e02">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Button>
+      <DatePicker fx:id="date" layoutX="642.0" layoutY="156.0" onHiding="#VerifDate" onInputMethodTextChanged="#VerifDate" prefHeight="31.0" prefWidth="225.0" />
+      <Label layoutX="55.0" layoutY="440.0" text="Image :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="choosefile" layoutX="164.0" layoutY="438.0" mnemonicParsing="false" onAction="#ChooseFile" text="Choisir" />
+      <Label fx:id="file" layoutX="234.0" layoutY="448.0" text="Aucun fichier choisir" />
+      <Label fx:id="myFile" layoutX="20.0" layoutY="590.0" opacity="0.0" />
+      <ImageView fx:id="image" fitHeight="109.0" fitWidth="143.0" layoutX="773.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ImgNom" fitHeight="27.0" fitWidth="28.0" layoutX="396.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/notic.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="textNom" layoutX="161.0" layoutY="193.0" prefHeight="21.0" prefWidth="225.0" textFill="#fc0606" />
+      <ImageView fx:id="ImgRole" fitHeight="27.0" fitWidth="28.0" layoutX="397.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/notic.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="textRole" layoutX="162.0" layoutY="283.0" prefHeight="21.0" prefWidth="225.0" textFill="#fc0606" />
+      <ImageView fx:id="ImgNat" fitHeight="27.0" fitWidth="28.0" layoutX="398.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/notic.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="textNat" layoutX="164.0" layoutY="389.0" prefHeight="21.0" prefWidth="225.0" textFill="#fc0606" />
+      <ImageView fx:id="ImgFile" fitHeight="27.0" fitWidth="28.0" layoutX="399.0" layoutY="443.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/notic.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="textFile" layoutX="165.0" layoutY="470.0" prefHeight="21.0" prefWidth="225.0" textFill="#fc0606" />
+      <ImageView fx:id="ImgDate" fitHeight="31.0" fitWidth="28.0" layoutX="877.0" layoutY="156.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/notic.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="textDate" layoutX="642.0" layoutY="187.0" prefHeight="21.0" prefWidth="225.0" textFill="#fc0606" />
+      <ImageView fx:id="ImgEquipe" fitHeight="27.0" fitWidth="28.0" layoutX="876.0" layoutY="253.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/notic.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="textEquipe" layoutX="644.0" layoutY="283.0" prefHeight="21.0" prefWidth="225.0" textFill="#fc0606" />
+      <ImageView fx:id="ImgNum" fitHeight="27.0" fitWidth="28.0" layoutX="875.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/notic.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="textNum" layoutX="644.0" layoutY="389.0" prefHeight="21.0" prefWidth="225.0" textFill="#fc0606" />
+   </children>
+</AnchorPane>

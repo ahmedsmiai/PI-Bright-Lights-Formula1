@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="body" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="1200.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.vitrine.EquipeController">
+   <children>
+      <Text layoutX="490.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nos équipes" textAlignment="CENTER">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="33.0" />
+         </font>
+      </Text>
+      <ScrollPane fx:id="scroll" layoutY="180.0" prefHeight="447.0" prefWidth="1200.0" style="-fx-background-color: #FFFFFFFF;">
+         <content>
+            <GridPane fx:id="grid" style="-fx-background-color: #FFFFFFFF;">
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+         </content>
+      </ScrollPane>
+      <TextField fx:id="recherche" layoutX="888.0" layoutY="135.0" onKeyReleased="#ChercherEquipe" prefHeight="37.0" prefWidth="260.0" promptText="Chercher équipe" style="-fx-border-radius: 5; -fx-border-color: black;" />
+      <ComboBox fx:id="filtre" layoutX="30.0" layoutY="135.0" onAction="#Filtrer" prefHeight="37.0" prefWidth="260.0" promptText="Filtrer par" style="-fx-background-color: black; -fx-border-radius: 5;" />
+   </children>
+</AnchorPane>

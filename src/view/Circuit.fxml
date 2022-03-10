@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="body" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="930.0" style="-fx-background-color: #FFFFFFFF;" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CircuitController">
+   <children>
+      <Label layoutX="383.0" layoutY="38.0" text="CIRCUIT" textAlignment="CENTER">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="33.0" />
+         </font>
+      </Label>
+      <TableView fx:id="table" layoutX="41.0" layoutY="200.0" prefHeight="411.0" prefWidth="835.0">
+         <columns>
+            <TableColumn fx:id="nomCircuit" prefWidth="122.0" text="Nom" />
+            <TableColumn fx:id="PaysCircuit" minWidth="0.0" prefWidth="117.0" text="Pays" />
+            <TableColumn fx:id="Longeur" prefWidth="158.0" text="Longeur" />
+            <TableColumn fx:id="CrsDist" prefWidth="135.0" text="Course Distance" />
+            <TableColumn fx:id="capacite" prefWidth="121.0" text="Capacite" />
+            <TableColumn fx:id="desc" prefWidth="181.0" text="Description" />
+         </columns>
+      </TableView>
+      <Button fx:id="addCircuit" layoutX="58.0" layoutY="149.0" mnemonicParsing="false" onAction="#OpenAddCircuit" prefHeight="39.0" prefWidth="190.0" style="-fx-background-color: #FFFFFFFF; -fx-border-color: #FE2E02;" text="+   Ajouter Circuit" textFill="#fe2e02">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="updateCircuit" layoutX="598.0" layoutY="149.0" mnemonicParsing="false" onAction="#OpenUpdateCircuit" prefHeight="39.0" prefWidth="121.0" style="-fx-background-color: #4357F6;" text="Modifier" textFill="#fffdfd">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/pen.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="deleteCircuit" layoutX="765.0" layoutY="149.0" mnemonicParsing="false" onAction="#DeleteCircuit" prefHeight="39.0" prefWidth="131.0" style="-fx-background-color: #FE2E02;" text="Supprimer" textFill="#fffdfd">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/tarsh.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <TextField fx:id="recherche" layoutX="303.0" layoutY="149.0" onKeyReleased="#ChercherMembre" prefHeight="39.0" prefWidth="243.0" promptText="Chercher circuit avec id" />
+      <Button fx:id="retourc" layoutX="38.0" layoutY="32.0" mnemonicParsing="false" onAction="#Retour" prefHeight="20.0" prefWidth="66.0" style="-fx-background-color: #FE2E02; -fx-border-color: #FE2E02;" text="&lt;" textFill="#fcfbfa">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

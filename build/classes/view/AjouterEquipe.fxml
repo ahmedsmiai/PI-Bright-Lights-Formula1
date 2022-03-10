@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="930.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AjouterEquipeController">
+   <children>
+      <Text layoutX="355.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter équipe" textAlignment="CENTER">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="33.0" />
+         </font>
+      </Text>
+      <Label layoutX="146.0" layoutY="164.0" text="Nom :">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="146.0" layoutY="432.0" text="Pays d'origine :">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="146.0" layoutY="274.0" text="Logo :">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="146.0" layoutY="352.0" text="Voiture :">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nom" layoutX="355.0" layoutY="164.0" onKeyReleased="#VerifNom" prefHeight="31.0" prefWidth="229.0" />
+      <TextField fx:id="voiture" layoutX="355.0" layoutY="352.0" onKeyReleased="#VerifVoiture" prefHeight="31.0" prefWidth="229.0" />
+      <TextField fx:id="pays" layoutX="355.0" layoutY="432.0" onKeyReleased="#VerifPays" prefHeight="31.0" prefWidth="229.0" />
+      <Button fx:id="choosefile" layoutX="355.0" layoutY="274.0" mnemonicParsing="false" onAction="#ChooseFile" prefHeight="31.0" prefWidth="109.0" text="Choisir" />
+      <Label fx:id="file" layoutX="466.0" layoutY="279.0" prefHeight="21.0" prefWidth="116.0" text="Aucun fichier choisir" />
+      <Button fx:id="add" layoutX="415.0" layoutY="499.0" mnemonicParsing="false" onAction="#hundleButtonAction" prefHeight="44.0" prefWidth="109.0" style="-fx-background-color: #FFFFFFFF; -fx-border-color: #FE2E02;" text="Ajouter" textFill="#fe2e02">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Button>
+      <ImageView fx:id="image" fitHeight="150.0" fitWidth="200.0" layoutX="689.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="myFile" layoutX="320.0" layoutY="459.0" opacity="0.0" />
+      <ImageView fx:id="ImgNom" fitHeight="31.0" fitWidth="33.0" layoutX="592.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ImgFile" fitHeight="31.0" fitWidth="33.0" layoutX="592.0" layoutY="276.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ImgVoiture" fitHeight="31.0" fitWidth="33.0" layoutX="592.0" layoutY="352.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ImgPays" fitHeight="31.0" fitWidth="33.0" layoutX="592.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="textNom" layoutX="355.0" layoutY="195.0" prefHeight="21.0" prefWidth="229.0" textFill="#fc0606" />
+      <Label fx:id="textFile" layoutX="355.0" layoutY="305.0" prefHeight="21.0" prefWidth="229.0" textFill="#fc0606" />
+      <Label fx:id="textVoiture" layoutX="355.0" layoutY="383.0" prefHeight="21.0" prefWidth="229.0" textFill="#fc0606" />
+      <Label fx:id="textPays" layoutX="355.0" layoutY="462.0" prefHeight="21.0" prefWidth="229.0" textFill="#fc0606" />
+      <Label fx:id="" layoutX="146.0" layoutY="218.0" text="Email :">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <TextField fx:id="email" layoutX="356.0" layoutY="216.0" onKeyReleased="#VerifEmail" prefHeight="31.0" prefWidth="229.0" />
+      <ImageView fx:id="ImgEmail" fitHeight="31.0" fitWidth="33.0" layoutX="592.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="textEmail" layoutX="357.0" layoutY="247.0" prefHeight="21.0" prefWidth="229.0" textFill="#fc0606" />
+   </children>
+</AnchorPane>

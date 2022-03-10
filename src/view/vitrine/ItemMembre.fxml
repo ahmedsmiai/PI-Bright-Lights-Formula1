@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#GetEquipe" prefHeight="420.0" prefWidth="420.0" styleClass="team-item" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.vitrine.ItemMembreController">
+   <children>
+      <AnchorPane layoutX="110.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <ImageView fx:id="image" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="67.22222900390625" AnchorPane.topAnchor="0.0">
+               <image>
+                  <Image url="@../../../../../221919149_1174676216380559_5884336869758991454_n.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <VBox layoutX="14.0" layoutY="244.0" prefHeight="159.0" prefWidth="159.0">
+         <children>
+            <Label prefHeight="32.0" prefWidth="175.0" text="Nom :">
+               <font>
+                  <Font name="Berlin Sans FB Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label prefHeight="31.8" prefWidth="175.0" text="Role :">
+               <font>
+                  <Font name="Berlin Sans FB Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label prefHeight="32.0" prefWidth="175.0" text="Nationalité :">
+               <font>
+                  <Font name="Berlin Sans FB Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label prefHeight="31.8" prefWidth="175.0" text="Date naissance :">
+               <font>
+                  <Font name="Berlin Sans FB Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="numLAb" prefHeight="31.8" prefWidth="175.0" text="Numero :">
+               <font>
+                  <Font name="Berlin Sans FB Bold" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <VBox layoutX="199.0" layoutY="244.0" prefHeight="159.0" prefWidth="200.0">
+         <children>
+            <Label fx:id="nom" prefHeight="32.0" prefWidth="201.0">
+               <font>
+                  <Font name="Berlin Sans FB" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="role" prefHeight="32.0" prefWidth="206.0">
+               <font>
+                  <Font name="Berlin Sans FB" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="nat" prefHeight="32.0" prefWidth="205.0">
+               <font>
+                  <Font name="Berlin Sans FB" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="date" prefHeight="32.0" prefWidth="205.0">
+               <font>
+                  <Font name="Berlin Sans FB" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="num" prefHeight="32.0" prefWidth="207.0">
+               <font>
+                  <Font name="Berlin Sans FB" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

@@ -5,6 +5,8 @@
  */
 package entite;
 
+import javafx.scene.image.ImageView;
+
 /**
  *
  * @author nechi
@@ -12,24 +14,76 @@ package entite;
 public class Equipe {
     private int equipe_id;
     private String nom;
+    private String logo;
     private String voiture;
     private String pays_origin;
-    
+    private String mail;
+    private ImageView img;
+
     public Equipe(){
         
     }
-
-    public Equipe(int equipe_id, String nom, String voiture, String pays_origin) {
+    
+    
+    public Equipe(int equipe_id, String nom,String logo,ImageView img, String voiture, String pays_origin) {
         this.equipe_id = equipe_id;
         this.nom = nom;
+        this.img=img;
+        this.voiture = voiture;
+        this.pays_origin = pays_origin;
+        this.logo=logo;
+    }
+    
+    public Equipe(int equipe_id, String nom,String mail,String logo, String voiture, String pays_origin) {
+        this.equipe_id = equipe_id;
+        this.nom = nom;
+        this.mail=mail;
+        this.logo=logo;
         this.voiture = voiture;
         this.pays_origin = pays_origin;
     }
     
-    public Equipe(String nom, String voiture, String pays_origin) {
+    
+    public Equipe(int equipe_id, String nom,String logo, String voiture, String pays_origin) {
+        this.equipe_id = equipe_id;
         this.nom = nom;
+        this.logo=logo;
         this.voiture = voiture;
         this.pays_origin = pays_origin;
+    }
+    
+    public Equipe(String nom,String mail,String logo, String voiture, String pays_origin) {
+        this.nom = nom;
+        this.mail=mail;
+        this.logo=logo;
+        this.voiture = voiture;
+        this.pays_origin = pays_origin;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+    
+
+    public ImageView getImg() {
+        return img;
+    }
+
+    public void setImg(ImageView img) {
+        this.img = img;
+    }
+
+    
+    public String getLogo() {
+        return logo;
+    }
+
+    public void setLogo(String logo) {
+        this.logo = logo;
     }
 
     public int getEquipe_id() {
@@ -64,9 +118,13 @@ public class Equipe {
         this.pays_origin = pays_origin;
     }
 
-    @Override
+     @Override
     public String toString() {
-        return "Equipe{" + "equipe_id=" + equipe_id + ", nom=" + nom + ", voiture=" + voiture + ", pays_origin=" + pays_origin + '}';
+        return this.nom;
+    }
+    
+    public String toString2() {
+       return "Equipe{" + "equipe_id=" + equipe_id + ", nom=" + nom + ", voiture=" + voiture + ", pays_origin=" + pays_origin + '}';
     }
 
     @Override

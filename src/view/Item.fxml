@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="Item" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="242.0" prefWidth="415.0" style="-fx-background-color: #FFFAF0;" styleClass="team-item" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ItemController">
+   <children>
+      <VBox layoutX="31.0" layoutY="21.0" prefHeight="200.0" prefWidth="173.0">
+         <children>
+            <HBox prefHeight="58.0" prefWidth="155.0">
+               <children>
+                  <Label prefHeight="55.0" prefWidth="73.0" text="Nom :   ">
+                     <font>
+                        <Font name="Ebrima Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="nom" layoutX="10.0" layoutY="10.0" prefHeight="55.0" prefWidth="82.0" text="a">
+                     <font>
+                        <Font name="Ebrima Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="78.0" prefWidth="257.0">
+               <children>
+                  <Label prefHeight="75.0" prefWidth="82.0" text="Pays :    ">
+                     <font>
+                        <Font name="Ebrima Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="pays" layoutX="10.0" layoutY="10.0" prefHeight="74.0" prefWidth="82.0" text="b">
+                     <font>
+                        <Font name="Ebrima Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="73.0" prefWidth="257.0">
+               <children>
+                  <Label prefHeight="75.0" prefWidth="82.0" text="Longeur:    ">
+                     <font>
+                        <Font name="Ebrima Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="longeur" layoutX="10.0" layoutY="10.0" prefHeight="69.0" prefWidth="82.0" text="v">
+                     <font>
+                        <Font name="Ebrima Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox layoutX="241.0" layoutY="21.0" prefHeight="200.0" prefWidth="184.0">
+         <children>
+            <HBox prefHeight="70.0" prefWidth="257.0">
+               <children>
+                  <Label prefHeight="68.0" prefWidth="88.0" text="Distance :    ">
+                     <font>
+                        <Font name="Ebrima Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="distance" layoutX="10.0" layoutY="10.0" prefHeight="68.0" prefWidth="80.0" text="d">
+                     <font>
+                        <Font name="Ebrima Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="69.0" prefWidth="257.0">
+               <children>
+                  <Label prefHeight="67.0" prefWidth="95.0" text="Capacite :    ">
+                     <font>
+                        <Font name="Ebrima Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="capacite" layoutX="10.0" layoutY="10.0" prefHeight="67.0" prefWidth="80.0" text="c">
+                     <font>
+                        <Font name="Ebrima Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="68.0" prefWidth="257.0">
+               <children>
+                  <Label prefHeight="66.0" prefWidth="109.0" text="Description :    ">
+                     <font>
+                        <Font name="Ebrima Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="description" layoutX="10.0" layoutY="10.0" prefHeight="66.0" prefWidth="80.0" text="e">
+                     <font>
+                        <Font name="Ebrima Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <ImageView fx:id="inon" fitHeight="32.0" fitWidth="29.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="idesc" fitHeight="32.0" fitWidth="29.0" layoutX="205.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="icap" fitHeight="32.0" fitWidth="29.0" layoutX="190.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="idis" fitHeight="32.0" fitWidth="29.0" layoutX="190.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ip" fitHeight="32.0" fitWidth="29.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ilong" fitHeight="32.0" fitWidth="29.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>

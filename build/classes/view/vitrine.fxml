@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="vitrine" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: white;" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.VitrineController">
+   <children>
+      <AnchorPane prefHeight="75.0" prefWidth="1200.0">
+         <children>
+            <Pane layoutY="-68.0" prefHeight="37.0" prefWidth="1200.0" style="-fx-background-color: #FE2E02;" AnchorPane.bottomAnchor="38.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <ImageView fitHeight="20.0" fitWidth="24.0" layoutX="1159.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/check.png" />
+                     </image>
+                  </ImageView>
+                  <HBox fx:id="menu" prefHeight="37.0" prefWidth="559.0" styleClass="VmenuItem" stylesheets="@Style.css">
+                     <children>
+                        <JFXButton alignment="BASELINE_LEFT" prefHeight="37.0" prefWidth="104.0" styleClass="VmenuItem" stylesheets="@Style.css" text="Accueil" textAlignment="CENTER" textFill="#fcf7f7">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <graphic>
+                              <ImageView fitHeight="18.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/home.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton alignment="BASELINE_LEFT" onAction="#OpenEquipe" prefHeight="37.0" prefWidth="99.0" styleClass="VmenuItem" stylesheets="@Style.css" text="Equipe" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="17.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/team.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton alignment="BASELINE_LEFT" prefHeight="37.0" prefWidth="116.0" styleClass="VmenuItem" stylesheets="@Style.css" text="Course" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/course.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton alignment="BASELINE_LEFT" prefHeight="37.0" prefWidth="95.0" styleClass="VmenuItem" stylesheets="@Style.css" text="Circuit" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="17.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/circuit.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton alignment="BASELINE_LEFT" prefHeight="37.0" prefWidth="141.0" styleClass="VmenuItem" stylesheets="@Style.css" text="Classement" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/classement.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+               </children>
+            </Pane>
+            <HBox layoutX="1069.0" layoutY="38.0" prefHeight="37.0" prefWidth="131.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1069.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="38.0">
+               <children>
+                  <JFXButton alignment="BASELINE_LEFT" prefHeight="37.0" prefWidth="149.0" styleClass="menuItem" text="Se connecter">
+                     <graphic>
+                        <ImageView fitHeight="17.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/user.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="body" layoutY="75.0" prefHeight="625.0" prefWidth="1200.0" styleClass="menuItem" stylesheets="@Style.css" />
+   </children>
+</AnchorPane>

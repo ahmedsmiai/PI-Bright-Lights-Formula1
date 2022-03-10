@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="body" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="930.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ModifierMembreController">
+   <children>
+      <Label layoutX="343.0" layoutY="36.0" text="Modifier Membre" textAlignment="CENTER">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="33.0" />
+         </font>
+      </Label>
+      <Button fx:id="add" layoutX="412.0" layoutY="525.0" mnemonicParsing="false" onAction="#UpdateMembre" prefHeight="49.0" prefWidth="125.0" style="-fx-background-color: #FFFFFFFF; -fx-border-color: #FE2E02;" text="Modifier" textFill="#fe2e02">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Button>
+      <Label layoutX="67.0" layoutY="168.0" text="Nom :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="69.0" layoutY="264.0" text="Role :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="65.0" layoutY="368.0" text="Nationalité :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="532.0" layoutY="168.0" text=" Naissance :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="538.0" layoutY="264.0" text="Equipe :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="LabNum" layoutX="543.0" layoutY="370.0" text="Numero :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nom" layoutX="171.0" layoutY="170.0" prefHeight="31.0" prefWidth="225.0" />
+      <TextField fx:id="nat" layoutX="174.0" layoutY="368.0" prefHeight="31.0" prefWidth="225.0" />
+      <ComboBox fx:id="ListRole" layoutX="172.0" layoutY="262.0" onAction="#ShowNumero" prefHeight="31.0" prefWidth="225.0" promptText="Choisir le role du membre" />
+      <ComboBox fx:id="equipe" layoutX="652.0" layoutY="262.0" prefHeight="31.0" prefWidth="225.0" promptText="Choisir l'équipe" />
+      <TextField fx:id="TextNum" layoutX="659.0" layoutY="368.0" prefHeight="31.0" prefWidth="225.0" />
+      <DatePicker fx:id="date" layoutX="652.0" layoutY="166.0" prefHeight="31.0" prefWidth="225.0" />
+      <Label layoutX="65.0" layoutY="450.0" text="Image :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="choosefile" layoutX="174.0" layoutY="448.0" mnemonicParsing="false" onAction="#ChooseFile" text="Choisir" />
+      <Label fx:id="file" layoutX="244.0" layoutY="458.0" text="Aucun fichier choisir" />
+      <Label fx:id="myFile" layoutX="30.0" layoutY="600.0" opacity="0.0" />
+      <ImageView fx:id="image" fitHeight="109.0" fitWidth="143.0" layoutX="783.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>

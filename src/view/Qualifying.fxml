@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane style="-fx-background-color: white" id="AnchorPane" fx:id="body" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="930.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.QualifyingController">
+   <stylesheets>
+      <URL value="@participation.css" />
+   </stylesheets>
+   <children>
+      <Button layoutX="760.0" layoutY="501.0" mnemonicParsing="false" onAction="#addQualifying" prefHeight="41.0" prefWidth="110.0" styleClass="rich-green" text="Ajouter" />
+      <TableView fx:id="table" layoutX="236.0" layoutY="114.0" prefHeight="375.0" prefWidth="652.0">
+         <columns>
+            <TableColumn fx:id="col_pilote" prefWidth="120.0" text="Pilote" />
+            <TableColumn fx:id="col_num" prefWidth="35.0" text="Num" />
+            <TableColumn fx:id="col_course" prefWidth="135.0" text="Course" />
+            <TableColumn fx:id="col_saison" prefWidth="55.0" text="Saison" />
+            <TableColumn fx:id="col_q1" prefWidth="70.0" text="Q1" />
+            <TableColumn fx:id="col_q2" minWidth="0.0" prefWidth="70.0" text="Q2" />
+            <TableColumn fx:id="col_q3" minWidth="5.0" prefWidth="70.0" text="Q3" />
+            <TableColumn fx:id="col_pos" prefWidth="70.0" text="Position" />
+         </columns>
+      </TableView>
+      <Button layoutX="768.0" layoutY="61.0" mnemonicParsing="false" onAction="#OpenUpdateQualifying" prefHeight="25.0" prefWidth="110.0" styleClass="rich-blue" text="Modifier" />
+      <Button layoutX="625.0" layoutY="61.0" mnemonicParsing="false" onAction="#deleteQualifying" prefHeight="25.0" prefWidth="110.0" styleClass="rich-red" text="Delete" />
+      <ComboBox fx:id="saison" layoutX="61.0" layoutY="158.0" prefHeight="25.0" prefWidth="110.0" promptText="Saison" />
+      <ComboBox fx:id="course" layoutX="61.0" layoutY="189.0" prefHeight="25.0" prefWidth="120.0" promptText="Course" />
+      <ComboBox fx:id="pilote" layoutX="61.0" layoutY="220.0" prefHeight="25.0" prefWidth="128.0" promptText="Pilote" />
+      <Button layoutX="89.0" layoutY="254.0" mnemonicParsing="false" onAction="#filterButton" text="Filter" />
+      <Button layoutX="87.0" layoutY="286.0" mnemonicParsing="false" onAction="#reset" text="Reset" />
+      <ComboBox fx:id="courses" layoutX="119.0" layoutY="501.0" prefHeight="41.0" prefWidth="173.0" promptText="Course" />
+      <ComboBox fx:id="pilotes" layoutX="232.0" layoutY="501.0" prefHeight="41.0" prefWidth="173.0" promptText="Pilote" />
+      <TextField fx:id="Q2" layoutX="449.0" layoutY="509.0" prefHeight="0.0" prefWidth="90.0" promptText="Q2" />
+      <TextField fx:id="Q1" layoutX="351.0" layoutY="509.0" prefHeight="0.0" prefWidth="90.0" promptText="Q1" />
+      <TextField fx:id="Q3" layoutX="545.0" layoutY="509.0" prefHeight="0.0" prefWidth="90.0" promptText="Q3" />
+      <TextField fx:id="position" layoutX="648.0" layoutY="509.0" prefHeight="0.0" prefWidth="90.0" promptText="Position" />
+   </children>
+</AnchorPane>

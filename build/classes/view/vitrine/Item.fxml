@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="item" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="183.0" prefWidth="550.0" styleClass="team-item" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.vitrine.ItemController">
+   <children>
+      <ImageView fx:id="image" fitHeight="121.0" fitWidth="193.0" layoutX="25.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" styleClass="image-container" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="343.5" AnchorPane.topAnchor="30.0" />
+      <VBox layoutX="265.0" layoutY="27.0" prefHeight="121.0" prefWidth="169.0">
+         <children>
+            <Label fx:id="nom" prefHeight="51.0" prefWidth="292.0" text="nom">
+               <font>
+                  <Font name="Berlin Sans FB" size="28.0" />
+               </font>
+            </Label>
+            <Label fx:id="voiture" prefHeight="35.0" prefWidth="292.0" text="Voiture">
+               <font>
+                  <Font name="Berlin Sans FB" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="pays" prefHeight="35.0" prefWidth="292.0" text="Pays">
+               <font>
+                  <Font name="Berlin Sans FB" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <AnchorPane layoutX="470.0" layoutY="14.0" prefHeight="35.0" prefWidth="50.0">
+         <children>
+            <ImageView fx:id="flag" fitHeight="35.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
