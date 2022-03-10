@@ -57,7 +57,7 @@ public class ClassementEquipesService implements IService<ClassementEquipes> {
     public void insert(ClassementEquipes u) {
         String req = "insert into classement_equipes (equipes_equipe_id,saisons_year,points_total,position) values ('" + u.getEquipes_equipe_id() + "','" + u.getSaisons_year() + "','" + u.getPoints_total() + "','" + u.getPosition() + "')";
         try {
-
+       
             ste = conn.createStatement();
             ste.executeUpdate(req);
             System.out.println("equipe_id ou saison invalide");

@@ -72,7 +72,7 @@ public class connexionDB {
    //  pp.update(p2);
 //     pp.position();
   pp.afficher();
-  pp.score();
+  //pp.score();
  //pp.position();
 
     

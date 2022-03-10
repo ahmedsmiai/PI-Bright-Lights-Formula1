@@ -143,7 +143,7 @@ public class ClassementPilotesService implements IService<ClassementPilotes> {
 
     ////////////////////////////////////////////////////////////////////////read with pilote name 
 public List<ClassementPilotes> read2() {
-        String req = "SELECT C.classementP_id, C.saisons_year, C.points_total, C.position, P.nom FROM classement_pilotes C LEFT OUTER JOIN membres P ON C.pilotes_pilote_id = P.membre_id";
+        String req = "SELECT C.classementP_id, P.nom, C.saisons_year, C.points_total, C.position FROM classement_pilotes C LEFT OUTER JOIN membres P ON C.pilotes_pilote_id = P.membre_id";
         List<ClassementPilotes> list = new ArrayList<>();
         try {
             ste = conn.createStatement();
@@ -359,17 +359,21 @@ public List<ClassementPilotes> readbys(int saisons_year) {
     }
 
      public List<ClassementPilotes> pts() {
-        String req = "SELECT  C.pilote_id, P.saison_year, C.points FROM participation C  LEFT OUTER JOIN courses P ON C.course_id = P.course_id order by saison_year;";
+        String req = "SELECT  C.pilote_id, P.saison_year, C.points FROM participation C  LEFT OUTER JOIN courses P ON C.course_id = P.course_id order by saison_year";
         List<ClassementPilotes> list = new ArrayList<>();
         try {
             ste = conn.createStatement();
             rs = ste.executeQuery(req);
+            
             while (rs.next()) {
-                list.add(new ClassementPilotes( rs.getInt("pilote_id"), rs.getInt("saison_year"), rs.getInt("points")));
+                ClassementPilotes cp=(new ClassementPilotes(rs.getInt("pilote_id"), rs.getInt("saison_year"), rs.getInt("points")));
+                list.add(cp);
+                System.out.println(list.toString());
             }
         } catch (SQLException ex) {
             Logger.getLogger(ClassementPilotesService.class.getName()).log(Level.SEVERE, null, ex);
         }
+         System.out.println(list);
         return list;
     }
        public void score() { //list to db
@@ -381,12 +385,13 @@ public List<ClassementPilotes> readbys(int saisons_year) {
 
                 String req = "update classement_pilotes set points_total=? where pilotes_pilote_id=? and saisons_year=?";
                 String s="update classement_pilotes set position=? where classementP_id=?";
-
+                System.out.println(req);
                 pst = conn.prepareStatement(req);
 
-                pst.setInt(1, u.getPosition());
+                pst.setInt(1, u.getPoints_total());
                 pst.setInt(2, u.getPilotes_pilote_id());
                 pst.setInt(3, u.getSaisons_year());
+                System.out.println(req);
                 pst.executeUpdate();
             } catch (SQLException ex) {
                 Logger.getLogger(ClassementPilotesService.class.getName()).log(Level.SEVERE, null, ex);
@@ -400,7 +405,7 @@ public List<ClassementPilotes> readbys(int saisons_year) {
 
     public void afficher() {
 
-        List<ClassementPilotes> lcp = pts();
+        List<ClassementPilotes> lcp = findAll();
         for (ClassementPilotes u : lcp) {
             System.out.println("Id: " + u.getClassementP_id());
             //	System.out.println("saison: " + u.getSaisons_year());

@@ -71,6 +71,8 @@ public class AddClassementPController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
+        
         SaisonService ss = new SaisonService();
  ClassementPilotesService pp = new ClassementPilotesService() ;
         choisYear.getItems().addAll(ss.readjustid());
@@ -84,7 +86,7 @@ public class AddClassementPController implements Initializable {
         
        //  ClassementPilotesService pp = new ClassementPilotesService() ;
        ClassementPilotesService ss = new ClassementPilotesService();
-     
+    
         int ptst = Integer.parseInt(textfieldPts.getText());
         
          Saison s = choisYear.getSelectionModel().getSelectedItem();

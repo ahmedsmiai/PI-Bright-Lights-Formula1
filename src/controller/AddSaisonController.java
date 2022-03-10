@@ -92,10 +92,10 @@ DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy");
 
   int i = Integer.parseInt(dtf.format(now));
       int year = Integer.parseInt(textfieldYear.getText());
-     int k= i - year ;
+     int k= year-i ;
        
        
-        if (textfieldYear.getText().matches("^[0-9]+$") && textfieldYear.getText().length() == 4 && k < 2 ) {
+        if (textfieldYear.getText().matches("^[0-9]+$") && textfieldYear.getText().length() == 4 && k > -2 ) {
             if ( datFin.isAfter(datDeb) ) {
              //   int year = Integer.parseInt(textfieldYear.getText());
 
